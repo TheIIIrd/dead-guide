@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>html{color-scheme:dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>Досье Abrams</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Oswald:wght@500;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Mono&display=swap">
+<link rel="stylesheet" href="../assets/dossier.css">
+</head>
+<body>
+<div class="wrap">
+  <nav class="spine" aria-label="Навигация по досье">
+    <div class="row">
+      <button class="case" type="button" id="case-btn" aria-haspopup="true" aria-expanded="false" aria-controls="case-menu">Abrams <small>№ 0800</small> <span class="caret" aria-hidden="true">▾</span></button>
+      <div class="case-menu" id="case-menu" hidden></div>
+      <div class="nums"><a href="#primety" aria-current="false"><b>I</b><small>Приметы</small></a><a href="#pokazaniya" aria-current="false"><b>II</b><small>Способности</small></a><a href="#hronika" aria-current="false"><b>III</b><small>Покупки</small></a><a href="#metod" aria-current="false"><b>IV</b><small>Метод</small></a><a href="#protokol" aria-current="false"><b>V</b><small>Ошибки</small></a><a href="#uliki" aria-current="false"><b>VI</b><small>Улики</small></a><a href="#kartoteka" aria-current="false"><b>VII</b><small>Соперники</small></a></div>
+    </div>
+    <div class="now">Лист <b data-now>обложка</b></div>
+  </nav>
+
+  <header class="hero">
+    <div class="folder" data-case="ДЕЛО № 0800">
+      <div class="hero-grid">
+        <div>
+          <h1>Abrams</h1>
+          <p class="charge">Обвиняется в том, что всегда первым лезет в драку.</p>
+          <p>Гайд для новичков по самому простому танку в Deadlock. Abrams врывается в самую гущу боя, оглушает врагов, вытягивает здоровье из всех, кто рядом, и восстанавливается за счёт полученного урона. Метко стрелять почти не нужно, а ошибки он прощает.</p>
+          <p>Внизу экрана закреплён счётчик душ. Передвинь ползунок, и все цифры в досье пересчитаются под твою игру: уровень, предметы, урон способностей.</p>
+          <div class="stamps">
+            <span class="stamp slam">Танк</span>
+            <span class="stamp slam d2">Сложность 1 / 4</span>
+            <span class="stamp slam d3">Играет от способностей</span>
+          </div>
+        </div>
+        <aside class="opis">
+          <h3>Опись материалов дела</h3>
+          <ol>
+            <li><a href="#primety"><span>Приметы и характер</span><span></span><span>I</span></a></li>
+            <li><a href="#pokazaniya"><span>Способности</span><span></span><span>II</span></a></li>
+            <li><a href="#hronika"><span>Хроника покупок</span><span></span><span>III</span></a></li>
+            <li><a href="#metod"><span>Метод работы</span><span></span><span>IV</span></a></li>
+            <li><a href="#protokol"><span>Протокол ошибок</span><span></span><span>V</span></a></li>
+            <li><a href="#uliki"><span>Улики под соперника</span><span></span><span>VI</span></a></li>
+            <li><a href="#kartoteka"><span>Картотека соперников</span><span></span><span>VII</span></a></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <section id="primety">
+    <div class="section-head"><span class="exhibit">Лист I</span><h2>Приметы и характер</h2></div>
+    <div class="sheet record">
+      <div>
+        <p class="quote">«Пока враги тратят на него патроны, союзники из задних рядов безнаказанно наносят урон». Из описания героя в игре.</p>
+        <table class="stat-table">
+          <tbody>
+            <tr><th>Здоровье</th><td>800 <small>+49 за усиление</small></td></tr>
+            <tr><th>Регенерация</th><td>1,5 HP/с</td></tr>
+            <tr><th>Скорость</th><td>6,4 м/с <small>медленный</small></td></tr>
+            <tr><th>Дробовик</th><td>9 × 3,6 урона <small>магазин 9</small></td></tr>
+            <tr><th>Дальность дробовика</th><td>полный урон до 17 м <small>к 40 м — лишь 10 %</small></td></tr>
+            <tr><th>Удар рукой</th><td>50 / 116 <small>лёгкий / тяжёлый</small></td></tr>
+            <tr><th>Духовная сила</th><td>0 <small>+1,1 за усиление</small></td></tr>
+            <tr><th>Выносливость</th><td>3 рывка</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="traits">
+        <h3>Сильные стороны</h3>
+        <ul>
+          <li>Много здоровья, и лечат его сразу две способности.</li>
+          <li>Два оглушения: рывок в стену и ульта.</li>
+          <li>Урон идёт в основном от способностей, а не от стрельбы.</li>
+          <li>Удар рукой с каждым уровнем растёт быстрее, чем у других героев.</li>
+        </ul>
+        <div class="minus">
+          <h3>Слабые места</h3>
+          <ul>
+            <li>Дробовик бесполезен издалека.</li>
+            <li>Медленно бегает: если полез не туда, уйти будет сложно.</li>
+            <li>Его легко «закайтить»: враги держат дистанцию, пока у него перезаряжаются способности.</li>
+            <li>Предметы, урезающие лечение (Healbane, Decay), бьют по нему больнее, чем по другим.</li>
+          </ul>
+        </div>
+        <p class="typed">Пометка следователя: дробовик заряжается по одному патрону, по 0,35 с на каждый. Не жди, пока зарядится весь магазин: стрелять можно и с парой патронов.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pokazaniya">
+    <div class="section-head"><span class="exhibit">Лист II</span><h2>Способности</h2></div>
+    <p class="lede">Цифры на карточках зависят от счётчика душ внизу: от твоей духовной силы и уже купленных улучшений. Урон указан без учёта сопротивлений цели, поэтому в игре он будет ниже.</p>
+    <div class="abilities">
+      <article class="sheet ab" id="ab-siphon">
+        <header><h3>Siphon Life</h3><span class="key">1-я способность · доступна сразу</span></header>
+        <p>Каждые 0,25 с наносит урон всем врагам поблизости и лечит тебя на 70 % урона, нанесённого героям. Твой главный источник и урона, и лечения.</p>
+        <dl class="readout">
+          <div><dt>Урон в секунду</dt><dd data-o="s-dps">—</dd></div>
+          <div><dt>За применение</dt><dd data-o="s-total">—</dd></div>
+          <div><dt>Лечение с героя</dt><dd data-o="s-heal">—</dd></div>
+          <div><dt>Длительность</dt><dd data-o="s-dur">—</dd></div>
+          <div><dt>Радиус</dt><dd data-o="s-rad">—</dd></div>
+          <div><dt>Перезарядка</dt><dd data-o="s-cd">—</dd></div>
+        </dl>
+        <ul class="tiers">
+          <li data-t="S1"><span class="t">T1 · 1</span><span>Перезарядка −20 с: 22 с вместо 42.</span></li>
+          <li data-t="S2"><span class="t">T2 · 2</span><span>+2 с длительности.</span></li>
+          <li data-t="S3"><span class="t">T3 · 5</span><span>+18 урона в секунду, коэффициент от духа 0,72, радиус +2 м.</span></li>
+        </ul>
+      </article>
+      <article class="sheet ab" id="ab-charge">
+        <header><h3>Shoulder Charge</h3><span class="key">2-я способность · с 1 100 душ</span></header>
+        <p>Рывок вперёд на 1,4 с. Враги на пути цепляются и тащатся вместе с тобой, а героя, впечатанного в стену, оглушает. Годится и чтобы ворваться в драку, и чтобы из неё выйти.</p>
+        <dl class="readout">
+          <div><dt>Урон</dt><dd data-o="c-dmg">—</dd></div>
+          <div><dt>Оглушение о стену</dt><dd data-o="c-stun">—</dd></div>
+          <div><dt>Перезарядка</dt><dd data-o="c-cd">—</dd></div>
+        </dl>
+        <ul class="tiers">
+          <li data-t="C1"><span class="t">T1 · 1</span><span>Замедление 32 % на 3 с.</span></li>
+          <li data-t="C2"><span class="t">T2 · 2</span><span>Оглушение о стену +0,8 с.</span></li>
+          <li data-t="C3"><span class="t">T3 · 5</span><span>Перезарядка −18 с; после столкновения с героем +1,5 к урону оружия на 6 с.</span></li>
+        </ul>
+      </article>
+      <article class="sheet ab" id="ab-infernal">
+        <header><h3>Infernal Resilience</h3><span class="key">пассивка · с 2 000 душ</span></header>
+        <p>Часть полученного урона в течение 20 с возвращается тебе лечением, а регенерация растёт на 1 HP/с. Урон от крипов учитывается на 40 %. Именно поэтому Abrams так прощает ошибки.</p>
+        <dl class="readout">
+          <div><dt>Возврат урона</dt><dd data-o="i-pct">—</dd></div>
+          <div><dt>Бонус здоровья</dt><dd data-o="i-hp">—</dd></div>
+          <div><dt>Вампиризм рукой</dt><dd data-o="i-ls">—</dd></div>
+        </dl>
+        <ul class="tiers">
+          <li data-t="I1"><span class="t">T1 · 1</span><span>+200 к здоровью.</span></li>
+          <li data-t="I2"><span class="t">T2 · 2</span><span>+18 % вампиризма от ударов рукой.</span></li>
+          <li data-t="I3"><span class="t">T3 · 5</span><span>Возврат до 22 % урона, +20 % сопротивления дебаффам.</span></li>
+        </ul>
+      </article>
+      <article class="sheet ab" id="ab-ult">
+        <header><h3>Seismic Impact</h3><span class="key">ульта · с 3 800 душ</span></header>
+        <p>Abrams высоко подпрыгивает и обрушивается в выбранную точку: всех вокруг ранит и оглушает. Перезаряжается долго, так что используй её против группы.</p>
+        <dl class="readout">
+          <div><dt>Урон</dt><dd data-o="u-dmg">—</dd></div>
+          <div><dt>Оглушение</dt><dd data-o="u-stun">—</dd></div>
+          <div><dt>Радиус</dt><dd data-o="u-rad">—</dd></div>
+          <div><dt>Перезарядка</dt><dd data-o="u-cd">—</dd></div>
+        </dl>
+        <ul class="tiers">
+          <li data-t="U1"><span class="t">T1 · 1</span><span>Перезарядка −30 с.</span></li>
+          <li data-t="U2"><span class="t">T2 · 2</span><span>Оглушение +0,8 с.</span></li>
+          <li data-t="U3"><span class="t">T3 · 5</span><span>5 с иммунитета к контролю при прыжке, радиус +6 м.</span></li>
+        </ul>
+      </article>
+    </div>
+    <div class="ap-order">
+      Порядок улучшений. Подсвечены те, на которые хватает очков при текущем значении счётчика. Чтобы взять всё, нужно 32 очка, а за матч на ~35 000 душ их набирается около 27, так что до последнего улучшения обычно не доходит.
+      <ol id="ap-list"></ol>
+    </div>
+  </section>
+
+  <section id="hronika">
+    <div class="section-head"><span class="exhibit">Лист III</span><h2>Хроника покупок</h2></div>
+    <p class="lede">Билд «спирит-танк»: качаем духовную силу и длительность Siphon Life, остальное вкладываем в живучесть. Рассчитан на обычный матч, за который набирается около 35 000 душ. Для улучшаемых предметов указана только доплата.</p>
+    <div class="sheet">
+      <div class="ledger-top">
+        <div class="slots-wrap">
+          <h4>Слоты сейчас</h4>
+          <div class="slots" id="slots"></div>
+          <p class="slots-note">9 обычных слотов и 3 дополнительных. Дополнительные открываются по одному за каждого уничтоженного вражеского Walker.</p>
+        </div>
+        <div class="inv">
+          <h4>Бонус за вложения в категорию</h4>
+          <div class="meter-row"><div class="lbl"><span>Живучесть</span><b data-o="v-bonus">—</b></div><div class="meter vit" data-meter="vit"></div><div class="next" data-o="v-next"></div></div>
+          <div class="meter-row"><div class="lbl"><span>Дух</span><b data-o="sp-bonus">—</b></div><div class="meter spi" data-meter="spi"></div><div class="next" data-o="sp-next"></div></div>
+          <div class="meter-row"><div class="lbl"><span>Оружие</span><b>+0 %</b></div><div class="meter wpn" data-meter="wpn"></div><div class="next">В этом билде не используется.</div></div>
+        </div>
+      </div>
+      <div id="phases"></div>
+      <p class="typed" style="margin-top:22px">Если Walker ещё стоят и доп. слотов нет, пропусти Mystic Vulnerability и Torment Pulse и сразу улучшай Spirit Lifesteal до Infuser. Последний, 12-й слот оставь под соперника: варианты на листе VI. Вместо Torment Pulse можно взять Superior Cooldown (−20 % к перезарядке способностей).</p>
+      <p class="typed">Про Golden Goose Egg: предмет сам приносит души, но в файлах игры у него есть скрытый штраф −15 % к твоему урону. Танку, который постоянно в драке, это невыгодно.</p>
+    </div>
+  </section>
+
+  <section id="metod">
+    <div class="section-head"><span class="exhibit">Лист IV</span><h2>Метод работы</h2></div>
+    <p class="lede">Главное правило: врывайся в драку первым, но только если рядом союзники, а рывок и Siphon Life готовы.</p>
+    <div class="board" role="list">
+      <svg class="string" aria-hidden="true"><polyline fill="none" stroke="#a8281f" stroke-width="1.6" points=""/></svg>
+      <div class="note" role="listitem"><span class="pin-dot"></span><span class="n">шаг 1</span><b>Рывок в стену</b><p>Используй Shoulder Charge так, чтобы впечатать врага в стену: он будет оглушён.</p></div>
+      <div class="note" role="listitem"><span class="pin-dot"></span><span class="n">шаг 2</span><b>Siphon Life</b><p>Жми сразу: враг прижат к стене и замедлен, из радиуса ему не выйти.</p></div>
+      <div class="note" role="listitem"><span class="pin-dot"></span><span class="n">шаг 3</span><b>Тяжёлый удар</b><p>Зажми кнопку удара рукой. С Lifestrike удар ещё и замедляет, и лечит.</p></div>
+      <div class="note" role="listitem"><span class="pin-dot"></span><span class="n">шаг 4</span><b>Дробовик в упор</b><p>Добивай с близкого расстояния. Ульту прибереги для групповой драки.</p></div>
+    </div>
+    <p class="board-caption">Красной нитью связаны шаги одной комбинации против одиночной цели. Вся она занимает около 3 секунд.</p>
+    <div class="sheet teamfight">
+      <h3 class="exhibit" style="color:var(--stamp)">Командная драка</h3>
+      <ol>
+        <li>Дождись, пока команда подтянется на 10–15 м за тобой.</li>
+        <li>Прыгай с Seismic Impact в центр вражеской группы. С Diviner's Kevlar сразу получишь щит на 1 000 HP.</li>
+        <li>Сразу после приземления включай Siphon Life: ты в самой гуще и лечишься от всех врагов разом.</li>
+        <li>Рывком вытащи самого опасного стрелка из-за спин его команды поближе к своим.</li>
+        <li>Если видишь, что тебя вот-вот оглушат, заранее жми Unstoppable: под оглушением его уже не активировать.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="protokol">
+    <div class="section-head"><span class="exhibit">Лист V</span><h2>Протокол ошибок</h2></div>
+    <div class="two">
+      <div class="sheet">
+        <h3 class="exhibit" style="color:var(--stamp);margin-top:0">Нарушения в бою</h3>
+        <ol class="protocol">
+          <li><span class="art">ст. 1</span><div><b>Рывок в одиночку против троих.</b>Рывок уже потрачен, а без него не отступить. Так погибает даже Abrams.</div></li>
+          <li><span class="art">ст. 2</span><div><b>Драка без способностей.</b>Если рывок и Siphon Life на перезарядке, отойди за спины команды и дождись, пока откатится хотя бы одна из них.</div></li>
+          <li><span class="art">ст. 3</span><div><b>Ульта на одного.</b>Она перезаряжается больше трёх минут, так что прибереги её для группы.</div></li>
+          <li><span class="art">ст. 4</span><div><b>Враг ушёл из радиуса Siphon Life.</b>Держись к нему вплотную и замедляй: рывком с T1 или ударом с Lifestrike.</div></li>
+          <li><span class="art">ст. 5</span><div><b>Удар прямо в парирование.</b>Если видишь, что враг готов парировать, выжди и бей, когда парирование закончится.</div></li>
+        </ol>
+      </div>
+      <div class="sheet">
+        <h3 class="exhibit" style="color:var(--stamp);margin-top:0">Нарушения в фарме</h3>
+        <ol class="farm">
+          <li><b>Не забираешь сферы.</b> Половина душ с крипа вылетает в виде сферы: выстрели в неё, иначе её заберёт враг. Если добить крипа рукой, сфера засчитается сразу.</li>
+          <li><b>Стоишь без дела.</b> Между волнами чисти лагеря у линии и ломай ящики рукой. Siphon Life в лагере и фармит, и лечит.</li>
+          <li><b>Пропускаешь Sinner's Sacrifice.</b> После 8-й минуты его можно разбить ударами рукой. Это самая крупная нейтральная награда, которую можно взять в одиночку.</li>
+          <li><b>Умираешь с душами из лагерей.</b> При смерти они пропадают. Накопил на покупку — сразу иди в магазин.</li>
+          <li><b>Делишь убийства.</b> Крипов выгодно фармить вдвоём, а героя добивать самому: за убийство в одиночку дают 125 %.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="uliki">
+    <div class="section-head"><span class="exhibit">Лист VI</span><h2>Улики под соперника</h2></div>
+    <p class="lede">Предметы против конкретных соперников. Ими занимают последний, 12-й слот, а если угроза серьёзная, ставят вместо Spirit Lifesteal или Fortitude. Что купили враги, видно по Tab.</p>
+    <div class="sheet scroll">
+      <table class="evid">
+        <thead><tr><th>Если</th><th>Предмет</th><th>Цена</th><th>Что даёт</th></tr></thead>
+        <tbody>
+          <tr><td>Тебя расстреливают стрелки</td><td>Bullet Resilience</td><td>3 200</td><td>+30 % сопротивления пулям, ещё +15 % ниже половины здоровья.</td></tr>
+          <tr><td>То же, но дешевле</td><td>Return Fire</td><td>1 600</td><td>Активка: 65 % урона пулями возвращается стрелявшему, +10 % сопротивления пулям.</td></tr>
+          <tr><td>Тебя бьют способностями</td><td>Spirit Resilience</td><td>3 200</td><td>+30 % сопротивления духу, ещё +15 % ниже половины здоровья.</td></tr>
+          <tr><td>Много магов в поздней игре</td><td>Witchmail</td><td>6 400</td><td>+22 % сопротивления духу, +14 духа. Когда тебя сильно бьют способностями, твои перезарядки сокращаются.</td></tr>
+          <tr><td>Враги много лечатся</td><td>Healbane</td><td>1 600</td><td>Твой урон духом, включая Siphon Life, снижает их лечение на 35 %. Если враг умрёт под этим эффектом, ты вылечишься на 275.</td></tr>
+          <tr><td>Фокусят и стрелки, и маги</td><td>Colossus</td><td>6 400</td><td>Активка на 7 с: +35 % к обоим сопротивлениям, +30 % урона рукой, замедление врагов в 14 м.</td></tr>
+          <tr><td>Тебя останавливают на подходе</td><td>Counterspell</td><td>3 200</td><td>Парирование отражает вражескую способность, а при удаче лечит на 150 и даёт +20 духа. Нужно точно поймать момент.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede" style="margin-top:18px">Труднее всего Abrams против тех, кто держит дистанцию: снайперов вроде Vindicta и Grey Talon и героев с дальним контролем. Не гоняйся за ними в одиночку: подбирайся вместе с командой, прячась за укрытиями.</p>
+  </section>
+
+  <section id="kartoteka">
+    <div class="section-head"><span class="exhibit">Лист VII</span><h2>Картотека соперников</h2></div>
+    <p class="lede">Десять героев, которые чаще всего встречаются в матчах или особенно неудобны для Abrams. Цифры способностей взяты из файлов игры. Оценка опасности — моя, для новичка на Abrams.</p>
+    <div class="rivals" id="rivals"></div>
+    <p class="rivals-note">В режиме катки можно отметить героев из вражеской команды, и останутся только подсказки против них.</p>
+  </section>
+
+  <footer>
+    <span>Статы героя, способностей и предметов, бонусы за вложения и кривая уровней взяты из файлов игры (heroes.vdata, abilities.vdata), сборка от 9 октября 2026.</span>
+    <span>Экономика душ: <a href="https://deadlock.wiki/Souls" rel="noopener">deadlock.wiki/Souls</a>. Дальность оружия: <a href="https://deadlock.wiki/Falloff_Range" rel="noopener">deadlock.wiki/Falloff_Range</a>.</span>
+    <span>Неофициальный фанатский гайд. Deadlock — игра Valve. После балансных патчей цифры могут устареть.</span>
+  </footer>
+</div>
+
+<div class="counter" role="region" aria-label="Счётчик душ">
+  <div class="counter-in">
+    <div><label for="souls">Душ всего</label><output id="souls-out" for="souls">17 600</output><span class="souls-note">с учётом 600 стартовых</span></div>
+    <input type="range" id="souls" min="600" max="49200" step="100" value="17600" aria-describedby="souls-out">
+    <div class="chips"><span class="chip" data-o="lvl">ур. 24</span><span class="chip" data-o="ap">AP 20</span><span class="chip" data-o="sp">дух 81</span><span class="chip" data-o="hp">HP —</span></div>
+    <div class="presets" id="presets">
+      <button type="button" data-v="3200">Линия</button>
+      <button type="button" data-v="9600">Ранние драки</button>
+      <button type="button" data-v="17600">Середина</button>
+      <button type="button" data-v="33600">Поздняя игра</button>
+      <button type="button" data-v="49200">Потолок</button>
+      <button type="button" class="k-open" id="k-open">Режим катки</button>
+      <label class="kevlar" id="kev-wrap" hidden><input type="checkbox" id="kev"> ульта прожата (Kevlar)</label>
+    </div>
+  </div>
+</div>
+
+<div class="katka" id="katka" role="dialog" aria-modal="true" aria-labelledby="k-title" hidden>
+  <div class="katka-in">
+    <div class="k-head">
+      <div><span class="exhibit">Рапорт на выезд</span><h2 id="k-title">Режим катки</h2></div>
+      <button type="button" class="k-close" id="k-close">Закрыть · Esc</button>
+    </div>
+    <div class="k-souls">
+      <div><span class="lbl">Душ всего</span><output id="k-souls-out">0</output><span class="souls-note">с учётом 600 стартовых</span></div>
+      <div class="k-steps" id="k-steps">
+        <button type="button" data-d="-500">−500</button><button type="button" data-d="-100">−100</button>
+        <button type="button" data-d="100">+100</button><button type="button" data-d="500">+500</button>
+      </div>
+    </div>
+    <div class="k-grid">
+      <section class="sheet k-card">
+        <h3>Следующая покупка</h3>
+        <p class="k-big" data-k="buy"></p>
+        <p class="k-price" data-k="buy-price"></p>
+        <div class="k-bar" role="progressbar" aria-label="Накоплено на покупку" aria-valuemin="0" aria-valuemax="100"><i data-k-bar></i></div>
+        <p class="k-small" data-k="buy-progress"></p>
+        <p data-k="buy-what"></p>
+        <p class="k-small" data-k="buy-then"></p>
+      </section>
+      <section class="sheet k-card">
+        <h3>Очки способностей</h3>
+        <p class="k-big" data-k="ap"></p>
+        <p class="k-price" data-k="ap-cost"></p>
+        <div class="k-pips" data-k-pips aria-hidden="true"></div>
+        <p data-k="ap-note"></p>
+        <p class="k-small" data-k="ap-lvl"></p>
+        <p class="k-small" data-k="ap-then"></p>
+      </section>
+      <section class="sheet k-card k-wide">
+        <h3>Комбо против одного</h3>
+        <ol class="k-combo"><li>Рывок в стену</li><li>Siphon Life</li><li>Тяжёлый удар</li><li>Дробовик в упор</li></ol>
+        <p class="k-small">Командная драка: ульта в центр группы → Siphon Life → рывком вытащить стрелка к своим.</p>
+      </section>
+      <section class="sheet k-card k-wide">
+        <h3>Против кого играем</h3>
+        <div class="k-chips" id="k-chips"></div>
+        <div class="k-tips" id="k-tips"></div>
+      </section>
+      <section class="sheet k-card k-wide">
+        <h3>Три правила</h3>
+        <ol class="k-rules">
+          <li>Врывайся, только если рядом союзники, а рывок и Siphon Life готовы.</li>
+          <li>Ульту трать на группу, а не на одного.</li>
+          <li>Не копи души: накопил на покупку — иди в магазин.</li>
+        </ol>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script src="hero.js"></script>
+<script src="../assets/heroes.js"></script>
+<script src="../assets/dossier.js"></script>
+</body>
+</html>

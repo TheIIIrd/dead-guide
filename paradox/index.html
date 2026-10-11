@@ -8,13 +8,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Oswald:wght@500;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Mono&display=swap">
 <style>html{color-scheme:dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="dossier.css">
+<link rel="stylesheet" href="../assets/dossier.css">
 </head>
 <body class="hero-paradox">
 <div class="wrap">
   <nav class="spine" aria-label="Навигация по досье">
     <div class="row">
-      <a class="case" href="index.html" title="Перейти к досье Abrams">Paradox ⇄ <small>№ 0730</small></a>
+      <button class="case" type="button" id="case-btn" aria-haspopup="true" aria-expanded="false" aria-controls="case-menu">Paradox <small>№ 0730</small> <span class="caret" aria-hidden="true">▾</span></button>
+      <div class="case-menu" id="case-menu" hidden></div>
       <div class="nums"><a href="#primety" aria-current="false"><b>I</b><small>Приметы</small></a><a href="#pokazaniya" aria-current="false"><b>II</b><small>Способности</small></a><a href="#hronika" aria-current="false"><b>III</b><small>Покупки</small></a><a href="#metod" aria-current="false"><b>IV</b><small>Метод</small></a><a href="#protokol" aria-current="false"><b>V</b><small>Ошибки</small></a><a href="#uliki" aria-current="false"><b>VI</b><small>Улики</small></a><a href="#kartoteka" aria-current="false"><b>VII</b><small>Соперники</small></a></div>
     </div>
     <div class="now">Лист <b data-now>обложка</b></div>
@@ -113,7 +114,7 @@
         </ul>
       </article>
       <article class="sheet ab" id="ab-wall">
-        <header><h3>Time Wall</h3><span class="key">2-я способность · с 500 душ</span></header>
+        <header><h3>Time Wall</h3><span class="key">2-я способность · с 1 100 душ</span></header>
         <p>Стена, в которой застывают вражеские пули и снаряды. Пули союзников, пролетая сквозь неё, ускоряются и бьют сильнее. Враги, задевшие стену, замедляются на 64 %.</p>
         <dl class="readout">
           <div><dt>Длительность</dt><dd data-o="w-dur">—</dd></div>
@@ -130,7 +131,7 @@
         </ul>
       </article>
       <article class="sheet ab" id="ab-carbine">
-        <header><h3>Kinetic Carbine</h3><span class="key">3-я способность · с 1 400 душ</span></header>
+        <header><h3>Kinetic Carbine</h3><span class="key">3-я способность · с 2 000 душ</span></header>
         <p>Заряжаемый выстрел: попадание наносит урон духом и останавливает для цели время. Пока заряжаешь, бежишь быстрее. Урон растёт от урона оружия, поэтому в этом билде он скромный.</p>
         <dl class="readout">
           <div><dt>Остановка времени</dt><dd data-o="k-stop">—</dd></div>
@@ -144,7 +145,7 @@
         </ul>
       </article>
       <article class="sheet ab" id="ab-swap">
-        <header><h3>Paradoxical Swap</h3><span class="key">ульта · с 3 200 душ</span></header>
+        <header><h3>Paradoxical Swap</h3><span class="key">ульта · с 3 800 душ</span></header>
         <p>Снаряд, который меняет тебя местами с вражеским героем и наносит ему урон. Враг оказывается там, где стояла ты, а ты — там, где стоял он.</p>
         <dl class="readout">
           <div><dt>Урон</dt><dd data-o="x-dmg">—</dd></div>
@@ -160,7 +161,7 @@
       </article>
     </div>
     <div class="ap-order">
-      Порядок улучшений. Подсвечены те, на которые хватает очков при текущем значении счётчика. Чтобы взять всё, нужно 32 очка, а за матч на ~35 000 душ их набирается около 28, так что до последнего улучшения обычно не доходит.
+      Порядок улучшений. Подсвечены те, на которые хватает очков при текущем значении счётчика. Чтобы взять всё, нужно 32 очка, а за матч на ~35 000 душ их набирается около 27, так что до последнего улучшения обычно не доходит.
       <ol id="ap-list"></ol>
     </div>
   </section>
@@ -271,15 +272,15 @@
 
 <div class="counter" role="region" aria-label="Счётчик душ">
   <div class="counter-in">
-    <div><label for="souls">Душ заработано</label><output id="souls-out" for="souls">19 000</output></div>
-    <input type="range" id="souls" min="0" max="48600" step="100" value="19000" aria-describedby="souls-out">
+    <div><label for="souls">Душ всего</label><output id="souls-out" for="souls">18 400</output><span class="souls-note">с учётом 600 стартовых</span></div>
+    <input type="range" id="souls" min="600" max="49200" step="100" value="18400" aria-describedby="souls-out">
     <div class="chips"><span class="chip" data-o="lvl">ур. —</span><span class="chip" data-o="ap">AP —</span><span class="chip" data-o="sp">дух —</span><span class="chip" data-o="hp">HP —</span></div>
     <div class="presets" id="presets">
-      <button type="button" data-v="3800">Линия</button>
-      <button type="button" data-v="11000">Ранние драки</button>
-      <button type="button" data-v="19000">Середина</button>
-      <button type="button" data-v="35000">Поздняя игра</button>
-      <button type="button" data-v="48600">Потолок</button>
+      <button type="button" data-v="3200">Линия</button>
+      <button type="button" data-v="10400">Ранние драки</button>
+      <button type="button" data-v="18400">Середина</button>
+      <button type="button" data-v="34400">Поздняя игра</button>
+      <button type="button" data-v="49200">Потолок</button>
       <button type="button" class="k-open" id="k-open">Режим катки</button>
     </div>
   </div>
@@ -292,7 +293,7 @@
       <button type="button" class="k-close" id="k-close">Закрыть · Esc</button>
     </div>
     <div class="k-souls">
-      <div><span class="lbl">Душ заработано</span><output id="k-souls-out">0</output></div>
+      <div><span class="lbl">Душ всего</span><output id="k-souls-out">0</output><span class="souls-note">с учётом 600 стартовых</span></div>
       <div class="k-steps" id="k-steps">
         <button type="button" data-d="-500">−500</button><button type="button" data-d="-100">−100</button>
         <button type="button" data-d="100">+100</button><button type="button" data-d="500">+500</button>
@@ -302,14 +303,20 @@
       <section class="sheet k-card">
         <h3>Следующая покупка</h3>
         <p class="k-big" data-k="buy"></p>
+        <p class="k-price" data-k="buy-price"></p>
+        <div class="k-bar" role="progressbar" aria-label="Накоплено на покупку" aria-valuemin="0" aria-valuemax="100"><i data-k-bar></i></div>
+        <p class="k-small" data-k="buy-progress"></p>
         <p data-k="buy-what"></p>
         <p class="k-small" data-k="buy-then"></p>
       </section>
       <section class="sheet k-card">
         <h3>Очки способностей</h3>
         <p class="k-big" data-k="ap"></p>
+        <p class="k-price" data-k="ap-cost"></p>
+        <div class="k-pips" data-k-pips aria-hidden="true"></div>
         <p data-k="ap-note"></p>
         <p class="k-small" data-k="ap-lvl"></p>
+        <p class="k-small" data-k="ap-then"></p>
       </section>
       <section class="sheet k-card k-wide">
         <h3>Комбо против одного</h3>
@@ -333,141 +340,8 @@
   </div>
 </div>
 
-<script>
-window.HERO = {
-  id: 'paradox',
-  baseHp: 730, hpPerBoon: 46, spPerBoon: 1.1,
-  UNLOCK_ORDER: ['G','W','K','X'],
-  UPG: [['G1',1],['W1',1],['K1',1],['G2',2],['X1',1],['W2',2],['G3',5],['X2',2],['K2',2],['W3',5],['X3',5],['K3',5]],
-  UPG_NAME: {G:'Grenade',W:'Wall',K:'Carbine',X:'Ульта'},
-  flexPhase: 4,
-  toggle: null,
-  abilityCards: [['ab-grenade','G'],['ab-wall','W'],['ab-carbine','K'],['ab-swap','X']],
-  ITEMS: {
-    xs:{n:'Extra Spirit',p:800,c:'spi',sp:10,hp:0},
-    me:{n:'Mystic Expansion',p:800,c:'spi',sp:0,hp:0},
-    xst:{n:'Extra Stamina',p:800,c:'vit',sp:0,hp:0},
-    xh:{n:'Extra Health',p:800,c:'vit',sp:0,hp:210},
-    de:{n:'Duration Extender',p:1600,c:'spi',sp:0,hp:0},
-    is:{n:'Improved Spirit',p:1600,c:'spi',from:'xs',sp:18,hp:75},
-    mv:{n:'Mystic Vulnerability',p:1600,c:'spi',sp:0,hp:0},
-    emb:{n:"Enchanter's Emblem",p:1600,c:'vit',sp:15,hp:0},
-    cc:{n:'Compress Cooldown',p:1600,c:'spi',sp:0,hp:0},
-    sd:{n:'Superior Duration',p:3200,c:'spi',from:'de',sp:0,hp:0},
-    ge:{n:'Greater Expansion',p:3200,c:'spi',from:'me',sp:0,hp:0},
-    sc:{n:'Superior Cooldown',p:3200,c:'spi',from:'cc',sp:0,hp:0},
-    ft:{n:'Fortitude',p:3200,c:'vit',from:'xh',sp:0,hp:375},
-    bs:{n:'Boundless Spirit',p:6400,c:'spi',from:'is',sp:30,spPct:15,hp:75},
-    ee:{n:'Escalating Exposure',p:6400,c:'spi',from:'mv',sp:0,hp:0},
-    eth:{n:'Ethereal Shift',p:6400,c:'spi',sp:0,hp:0},
-    tc:{n:'Transcendent Cooldown',p:6400,c:'spi',from:'sc',sp:0,hp:0},
-    sr:{n:'Spirit Resilience',p:3200,c:'vit',sp:0,hp:0},
-    sbn:{n:'Spirit Burn',p:6400,c:'spi',sp:0,hp:0}
-  },
-  PHASES: [
-    {t:'Фаза 1. Линия', r:'0–3 800 душ', buys:[
-      ['xs','+10 духа','Сразу усиливает Pulse Grenade и Paradoxical Swap.'],
-      ['me','+20 % к дальности и радиусу одной способности','При покупке выбери Pulse Grenade: зона станет шире, и из неё труднее уйти.'],
-      ['xst','+1 рывок, выносливость восстанавливается на 12 % быстрее','Лишний рывок, чтобы уйти от тех, кто к тебе прыгает.'],
-      ['xh','+210 HP','У Paradox всего 730 HP, запас здоровья не помешает.']]},
-    {t:'Фаза 2. Ранние драки', r:'3 800–11 000 душ', buys:[
-      ['de','+22 % длительности одной способности','Выбери Pulse Grenade: чем дольше граната, тем больше импульсов и сильнее усиление урона.'],
-      ['is','+18 духа, +75 HP','Основа для Boundless Spirit.'],
-      ['mv','Твой урон духом снижает сопротивление цели духу на 8 %','Вложения в дух доходят до 4 800, и бонус подскакивает с +19 до +38.'],
-      ['emb','+15 духа, +18 % сопротивления духу и −5 % к перезарядкам, пока здоровье выше 65 %','Издалека тебя бьют редко, так что бонус почти всегда работает.'],
-      ['cc','−18 % к перезарядке одной способности','Выбери Paradoxical Swap: ульта будет готова чаще.']]},
-    {t:'Фаза 3. Середина игры', r:'11 000–19 000 душ', buys:[
-      ['sd','+28 % длительности всех способностей','Теперь дольше держатся и граната, и стена.'],
-      ['ge','+30 % к дальности и радиусу всех способностей','Обмен и граната достают дальше. Вложения в дух доходят до 11 200, бонус +59.'],
-      ['sc','−20 % к перезарядке всех способностей','Готовы чаще уже все способности, а не только ульта.'],
-      ['ft','+375 HP, быстрая регенерация вне боя','Живучесть доходит до 4 800, и бонус подскакивает с +20 до +38.']]},
-    {t:'Фаза 4. Поздняя игра', r:'19 000–35 000 душ', buys:[
-      ['bs','+30 духа и ещё +15 % ко всей духовной силе','Самая большая прибавка к урону способностей.'],
-      ['ee','Урон духом накладывает до 12 стаков по +4,5 % к урону духом по цели','Каждый импульс гранаты добавляет стак. Вложения в дух доходят до 22 400, бонус +75.'],
-      ['eth','Активка: 4 с неуязвимости и +3 м/с','Спасает, когда к тебе всё-таки прыгнули. Вложения в дух доходят до 28 800: максимальный бонус +100.']]},
-    {t:'Доп. слоты после Walker', r:'35 000+ душ · слоты 10–12', buys:[
-      ['tc','−25 % к перезарядке способностей и предметов','Улучшение без нового слота.'],
-      ['sr','+30 % сопротивления духу, ещё +15 % ниже половины здоровья','Слот 10. Против магов, которые до тебя дотягиваются.'],
-      ['sbn','Если за 5 с нанести цели 500+ урона духом, она взрывается и горит, её лечение −70 %','Слот 11. Граната с обменом легко набирают эти 500 урона.']]}
-  ],
-  RIVALS: [
-    {id:'haze', n:'Haze', role:'стрелок', lvl:3,
-     fear:['Sleep Dagger: сон на 2,75 с (перезарядка 30 с). Для тебя это почти всегда смерть.', 'Bullet Dance (ульта): 3,5 с без промаха стреляет по всем в радиусе 16 м.'],
-     play:['Держись рядом со своей командой: в одиночку ты для неё лёгкая цель.', 'Она прыгнула на тебя — сразу Ethereal Shift, затем Swap к своим.'],
-     buy:'Warp Stone или Bullet Resilience', tip:'Не отходи от своих. Прыгнула — Ethereal Shift и уходи к команде.'},
-    {id:'vyper', n:'Vyper', role:'ассасин', lvl:3,
-     fear:['Lethal Venom: чем меньше у тебя здоровья, тем больнее яд. Дальность всего 10 м.', 'Petrifying Bola (ульта): прямое попадание превращает в камень на 2,2 с.'],
-     play:['Держись дальше 10 м: тогда она не дотянется ядом.', 'Её кинжалы замедляют всё сильнее. Ставь Time Wall между вами, пока замедление не накопилось.'],
-     buy:'Spirit Resilience', tip:'Держись дальше 10 м: яд бьёт только вблизи.'},
-    {id:'talon', n:'Grey Talon', role:'лучник', lvl:3,
-     fear:['Spirit Snare: ловушка на 2,25 с отключает способности, оружие и предметы. Для тебя это всё оружие сразу.', 'Guided Owl: 230 урона и оглушение на 0,75 с в радиусе 12 м.'],
-     play:['Смотри под ноги и не стой подолгу на одном месте: ловушки ставят там, где ты ходишь.', 'Он медленный (6,3 м/с): если подошёл близко, Swap утащит его к твоей команде.'],
-     buy:'Debuff Reducer или Spirit Resilience', tip:'Обходи ловушки, не стой на месте. Подошёл — Swap к своим.'},
-    {id:'vindicta', n:'Vindicta', role:'снайпер', lvl:2,
-     fear:['Assassinate: выстрел через всю карту, по целям ниже 50 % здоровья бьёт сильнее.', 'Stake: привязывает к месту на 1,75 с в радиусе 9 м.'],
-     play:['Ставь Time Wall между собой и ней: стена останавливает её пули.', 'С низким здоровьем уходи за укрытия, иначе Assassinate добьёт.'],
-     buy:'Bullet Resilience', tip:'Стена между вами гасит её пули. С низким HP — за укрытие.'},
-    {id:'seven', n:'Seven', role:'маг', lvl:2,
-     fear:['Static Charge: через секунду оглушает на 0,9 с всех в 5 м вокруг цели.', 'Storm Cloud (ульта): облако до 30 м бьёт всех, кого он видит.'],
-     play:['Пока он держит ульту, он почти не двигается: удобная цель для гранаты.', 'Облако не бьёт тех, кого он не видит: уходи за стены и углы.'],
-     buy:'Spirit Resilience', tip:'Во время ульты он стоит на месте — бросай гранату. Прячься за углы.'},
-    {id:'ratking', n:'Rat King', role:'боец с оружием', lvl:2,
-     fear:['Royal Pestments: щит на 15 % его здоровья, пока он держится, пули отражаются в стрелка.', 'Rule, Ratannia! (ульта): у флага его союзники получают на 15 % меньше урона и не замедляются.'],
-     play:['Пока на нём щит, не стреляй: бей гранатой, способности не отражаются.', 'Swap вытаскивает его из-под флага к твоей команде.'],
-     buy:'Bullet Resilience', tip:'Щит на нём — не стреляй, бей гранатой. Swap вытаскивает его из-под флага.'},
-    {id:'victor', n:'Victor', role:'танк', lvl:2,
-     fear:['Shocking Reanimation (ульта): после смерти встаёт с 50 % здоровья и оглушает всех в 18 м на 1,5 с.', 'Aura of Suffering: урон вокруг него растёт до 58 в секунду.'],
-     play:['Ты бьёшь издалека: добивай его с дистанции и держись дальше 18 м, когда он падает.', 'Он лечится через Jumpstart: Healbane урежет это лечение.'],
-     buy:'Healbane', tip:'Добивай издалека, держись дальше 18 м: он воскреснет и оглушит.'},
-    {id:'infernus', n:'Infernus', role:'поджигатель', lvl:2,
-     fear:['Napalm: замедляет на 28 %, и 8 с ты получаешь от него на 16 % больше урона.', 'Concussive Combustion (ульта): через задержку оглушает на 1,25 с всех в 12 м, прервать её нельзя.'],
-     play:['Не подпускай его ближе 12 м: ставь Time Wall у него на пути.', 'Начал ульту рядом с тобой — сразу Ethereal Shift.'],
-     buy:'Spirit Resilience', tip:'Не подпускай ближе 12 м. Ульта рядом — Ethereal Shift.'},
-    {id:'paige', n:'Paige', role:'поддержка', lvl:1,
-     fear:['Captivating Read: зона замедления, через задержку обездвиживает на 1 с.', 'Rallying Charge (ульта): волна через весь город бьёт, оглушает на 1 с и лечит её союзников.'],
-     play:['Она тоже бьёт издалека, но у неё всего 680 HP: дуэль на дистанции в твою пользу.', 'Увидел зону под ногами — сразу выходи из неё.'],
-     buy:'Healbane', tip:'Хрупче тебя: граната и Carbine выигрывают дуэль.'},
-    {id:'graves', n:'Graves', role:'призыватель', lvl:2,
-     fear:['Grasping Hands: стена рук обездвиживает на 1 с всех, кто сквозь неё проходит.', 'Essence Theft: его оружие крадёт у тебя сопротивление духу и урон оружия.'],
-     play:['Не стой долго под его огнём: он крадёт твоё сопротивление духу.', 'Обходи стену рук, а не беги сквозь неё.'],
-     buy:'Spirit Resilience', tip:'Не стой под его огнём: он крадёт сопротивление. Стену рук обходи.'}
-  ],
-  compute(s, {fmt, fmt1}) {
-    const H = s.have, sp = s.sp, o = s.owned;
-    // item effects
-    const allDur = o.has('sd') ? 28 : 0;
-    const gDur = allDur || (o.has('de') ? 22 : 0);
-    const allRad = o.has('ge') ? 30 : 0;
-    const gRad = allRad || (o.has('me') ? 20 : 0);
-    const allCdr = o.has('tc') ? 25 : o.has('sc') ? 20 : 0;
-    const embCdr = o.has('emb') ? 5 : 0;
-    const cdMul = extra => (1 - allCdr / 100) * (1 - embCdr / 100) * (1 - (extra || 0) / 100);
-    const swapCdr = !allCdr && o.has('cc') ? 18 : 0;
-    // Pulse Grenade
-    const gPulse = 35 + (H.has('G2') ? 20 : 0) + (0.3 + (H.has('G2') ? 0.5 : 0)) * sp;
-    const gTime = (3.2 + (H.has('G3') ? 1.6 : 0)) * (1 + gDur / 100);
-    const gN = Math.floor(gTime / 0.8 + 1e-9);
-    const gAmp = gN * (4 + (H.has('G3') ? 4 : 0));
-    const gR0 = 5.5 * (1 + gRad / 100), gR1 = (5.5 + (gN - 1)) * (1 + gRad / 100);
-    // Time Wall
-    const wDur = (5.5 + (H.has('W1') ? 3.5 : 0)) * (1 + allDur / 100);
-    const wW = (8 + (H.has('W1') ? 3 : 0)), wH = (4 + (H.has('W1') ? 1 : 0));
-    // Kinetic Carbine
-    const kStop = 0.4 + (H.has('K1') ? 0.4 : 0);
-    // Paradoxical Swap
-    const xRange = (25 + (H.has('X2') ? 13 : 0)) * (1 + allRad / 100);
-    return {
-      'g-pulse': fmt(gPulse), 'g-n': String(gN), 'g-total': fmt(gPulse * gN), 'g-amp': `+${gAmp} %`,
-      'g-rad': `${fmt1(gR0)}–${fmt1(gR1)} м`, 'g-cd': `${fmt1((32 - (H.has('G1') ? 12 : 0)) * cdMul())} с`,
-      'w-dur': `${fmt1(wDur)} с`, 'w-size': `${wW} × ${wH} м`, 'w-bonus': `+${30 + (H.has('W2') ? 35 : 0)} %`,
-      'w-sil': H.has('W2') ? '2,3 с' : 'нет', 'w-ch': H.has('W3') ? '3' : '1', 'w-cd': `${fmt1(25 * cdMul())} с`,
-      'k-stop': `до ${fmt1(kStop)} с`, 'k-hold': `${fmt1(2.5 + (H.has('K3') ? 2 : 0))} с`, 'k-cd': `${fmt1((28 - (H.has('K2') ? 12 : 0)) * cdMul())} с`,
-      'x-dmg': fmt(150 + 1.1 * sp), 'x-range': `${fmt1(xRange)} м`, 'x-bar': H.has('X1') ? fmt(200 + 1.5 * sp) : 'нет',
-      'x-cd': `${fmt((110 - (H.has('X2') ? 30 : 0)) * cdMul(swapCdr))} с`
-    };
-  }
-};
-</script>
-<script src="dossier.js"></script>
+<script src="hero.js"></script>
+<script src="../assets/heroes.js"></script>
+<script src="../assets/dossier.js"></script>
 </body>
 </html>
