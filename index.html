@@ -9,307 +9,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Oswald:wght@500;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Mono&display=swap">
-<style>
-/* Layout: a detective's case file lying on a green felt desk at night. Paper sheets carry the content,
-   a brass soul counter is pinned to the bottom edge and drives every number on the page. */
-:root {
-  color-scheme: dark;
-  --felt: #12201b;          /* desk felt */
-  --felt-deep: #0b1511;
-  --paper: #e4d8b9;         /* manila sheet */
-  --paper-edge: #cdbd96;
-  --ink: #221d16;           /* typewriter ink */
-  --ink-soft: #5a4f3f;
-  --carbon: #2c3f6e;        /* carbon-copy blue for typed notes */
-  --stamp: #a8281f;         /* rubber-stamp red */
-  --brass: #c7a14c;         /* lamp brass */
-  --brass-dim: #8a7034;
-  --on-felt: #d9cfb6;
-  --on-felt-dim: #8f9a8e;
-  --vit: #3f6d3b;           /* vitality items */
-  --spi: #6a3f86;           /* spirit items */
-  --wpn: #b0601e;           /* weapon items */
-  --font-display: "Poiret One", "Didot", "Bodoni 72", Georgia, serif;
-  --font-stamp: "Oswald", "Arial Narrow", Impact, sans-serif;
-  --font-body: "PT Serif", Georgia, "Times New Roman", serif;
-  --font-type: "PT Mono", "Courier New", ui-monospace, monospace;
-  --step--1: 0.82rem; --step-0: 1rem; --step-1: 1.2rem; --step-2: 1.5rem; --step-3: 2.1rem; --step-4: clamp(3.2rem, 11vw, 7.5rem);
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--felt);
-  background-image:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(199,161,76,.16), transparent 70%),
-    radial-gradient(ellipse at 50% 120%, var(--felt-deep), transparent 60%);
-  background-attachment: fixed;
-  color: var(--on-felt);
-  font-family: var(--font-body);
-  font-size: var(--step-0);
-  line-height: 1.55;
-  padding-inline: 16px;
-  padding-block: 0 120px;
-}
-a { color: inherit; }
-:focus-visible { outline: 2px dashed var(--brass); outline-offset: 3px; }
-.wrap { max-width: 1060px; margin-inline: auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 56px; }
-.wrap > * { min-width: 0; }
-
-/* ---------- paper ---------- */
-.sheet {
-  background: var(--paper);
-  background-image: repeating-linear-gradient(to bottom, transparent 0 31px, rgba(44,63,110,.10) 31px 32px);
-  color: var(--ink);
-  padding: clamp(20px, 4vw, 44px);
-  border-radius: 2px;
-  box-shadow: 0 1px 0 var(--paper-edge), 0 18px 40px rgba(0,0,0,.45);
-  position: relative;
-  min-width: 0;
-}
-.sheet::before { /* paper clip */
-  content: ""; position: absolute; top: -14px; left: 34px; width: 16px; height: 44px;
-  border: 3px solid #9a9a92; border-radius: 9px; border-bottom-color: transparent; opacity: .85;
-}
-.section-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 18px; margin-bottom: 18px; }
-.section-head h2 {
-  font-family: var(--font-display); font-weight: 400; font-size: var(--step-3); line-height: 1.1;
-  margin: 0; color: var(--on-felt); text-wrap: balance;
-}
-.exhibit {
-  font-family: var(--font-type); font-size: var(--step--1); letter-spacing: .12em; text-transform: uppercase;
-  color: var(--brass);
-}
-.lede { max-width: 62ch; color: var(--on-felt); margin: 0 0 22px; }
-.typed { font-family: var(--font-type); color: var(--carbon); }
-.stamp {
-  display: inline-block; font-family: var(--font-stamp); font-weight: 700; text-transform: uppercase;
-  letter-spacing: .08em; color: var(--stamp); border: 3px solid var(--stamp); padding: 2px 10px;
-  border-radius: 4px; transform: rotate(-6deg); mix-blend-mode: multiply; opacity: .9;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .slam { animation: slam .5s cubic-bezier(.2,1.6,.4,1) both; }
-  .slam.d2 { animation-delay: .25s; } .slam.d3 { animation-delay: .5s; }
-  @keyframes slam { from { transform: rotate(-14deg) scale(1.6); } to { transform: rotate(-6deg) scale(1); } }
-}
-
-/* ---------- folder tabs nav ---------- */
-.tabs {
-  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
-  display: flex; gap: 4px; overflow-x: auto; padding-top: 10px; margin-inline: -16px; padding-inline: 16px;
-  background: linear-gradient(var(--felt) 70%, transparent);
-  scrollbar-width: none;
-}
-.tabs a {
-  flex: none; text-decoration: none; font-family: var(--font-type); font-size: var(--step--1);
-  background: var(--paper-edge); color: var(--ink); padding: 6px 14px 5px; border-radius: 8px 8px 0 0;
-  border-bottom: 2px solid var(--brass-dim);
-}
-.tabs a:hover { background: var(--paper); }
-
-/* ---------- hero ---------- */
-.hero { padding-top: 26px; }
-.folder {
-  background: #b89a5e; background-image: linear-gradient(160deg, rgba(255,255,255,.12), transparent 40%);
-  color: var(--ink); border-radius: 3px 14px 3px 3px; padding: clamp(22px, 5vw, 56px);
-  position: relative; box-shadow: 0 24px 50px rgba(0,0,0,.5);
-}
-.folder::before {
-  content: "ДЕЛО № 0800"; position: absolute; top: -30px; left: 0; background: #b89a5e;
-  font-family: var(--font-type); font-size: var(--step--1); letter-spacing: .14em;
-  padding: 7px 18px 6px; border-radius: 8px 8px 0 0;
-}
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 28px; align-items: end; }
-.hero h1 {
-  font-family: var(--font-display); font-weight: 400; font-size: var(--step-4); line-height: .9;
-  margin: 0 0 8px; letter-spacing: -.01em;
-}
-.hero .charge { font-family: var(--font-type); font-size: var(--step-1); margin: 0 0 18px; color: var(--carbon); }
-.hero p { max-width: 54ch; margin: 0 0 14px; }
-.stamps { display: flex; flex-wrap: wrap; gap: 14px 18px; margin-top: 18px; }
-.stamps .stamp { font-size: var(--step-1); }
-.opis { background: var(--paper); padding: 18px 20px; box-shadow: 0 6px 18px rgba(0,0,0,.25); transform: rotate(1.2deg); }
-.opis h3 { margin: 0 0 8px; font-family: var(--font-type); font-weight: 400; font-size: var(--step--1); letter-spacing: .14em; text-transform: uppercase; }
-.opis ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-family: var(--font-type); font-size: .9rem; }
-.opis li a { display: flex; gap: 8px; text-decoration: none; }
-.opis li a span:nth-child(2) { flex: 1; border-bottom: 1px dotted var(--ink-soft); transform: translateY(-5px); }
-.opis li a:hover { color: var(--stamp); }
-
-/* ---------- record card ---------- */
-.record { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
-.stat-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
-.stat-table th, .stat-table td { text-align: left; padding: 7px 0; border-bottom: 1px solid rgba(34,29,22,.18); vertical-align: top; }
-.stat-table th { font-family: var(--font-type); font-weight: 400; font-size: .9rem; color: var(--ink-soft); width: 46%; }
-.stat-table td { font-family: var(--font-stamp); font-weight: 500; font-size: 1.05rem; }
-.stat-table td small { font-family: var(--font-type); font-weight: 400; color: var(--carbon); font-size: .8rem; margin-left: 6px; }
-.traits h3 { font-family: var(--font-stamp); text-transform: uppercase; letter-spacing: .06em; font-size: var(--step-0); margin: 0 0 6px; }
-.traits ul { margin: 0 0 18px; padding-left: 1.1em; }
-.traits li { margin-bottom: 4px; }
-.traits .minus h3 { color: var(--stamp); }
-.quote { font-style: italic; border-left: 3px solid var(--brass-dim); padding-left: 14px; margin: 0 0 20px; color: var(--ink-soft); }
-
-/* ---------- abilities ---------- */
-.abilities { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-.ab { display: grid; gap: 12px; align-content: start; }
-.ab header { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-.ab h3 { margin: 0; font-family: var(--font-stamp); font-weight: 700; text-transform: uppercase; font-size: var(--step-1); letter-spacing: .03em; }
-.ab .key { font-family: var(--font-type); font-size: .8rem; color: var(--ink-soft); }
-.ab p { margin: 0; }
-.ab.locked { filter: grayscale(.8); opacity: .62; }
-.readout { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; }
-.readout div { border: 1px solid rgba(34,29,22,.25); padding: 6px 10px 7px; background: rgba(255,255,255,.18); }
-.readout dt { font-family: var(--font-type); font-size: .72rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .06em; }
-.readout dd { margin: 0; font-family: var(--font-stamp); font-weight: 700; font-size: 1.35rem; font-variant-numeric: tabular-nums; line-height: 1.2; }
-.tiers { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: .92rem; }
-.tiers li { display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 8px; align-items: baseline; }
-.tiers .t { font-family: var(--font-type); font-size: .78rem; border: 1px solid var(--ink-soft); text-align: center; padding: 0 4px; color: var(--ink-soft); }
-.tiers li.on .t { background: var(--carbon); border-color: var(--carbon); color: var(--paper); }
-.tiers li.on { color: var(--ink); } .tiers li:not(.on) { color: var(--ink-soft); }
-.ap-order { margin-top: 24px; font-family: var(--font-type); font-size: .88rem; color: var(--on-felt-dim); }
-.ap-order ol { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 8px 0 0; counter-reset: ap; }
-.ap-order li { counter-increment: ap; border: 1px solid var(--brass-dim); padding: 3px 8px; border-radius: 3px; color: var(--on-felt); }
-.ap-order li::before { content: counter(ap) ". "; color: var(--brass); }
-.ap-order li.done { background: var(--brass); color: var(--felt-deep); border-color: var(--brass); }
-.ap-order li.done::before { color: var(--felt-deep); }
-.ap-order li.skip { opacity: .55; border-style: dashed; }
-
-/* ---------- build ledger ---------- */
-.ledger-top { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px; margin-bottom: 26px; }
-.slots { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
-.slot {
-  aspect-ratio: 1 / 1; max-width: 100%; border: 1.5px dashed rgba(34,29,22,.35); display: grid; place-items: center;
-  font-family: var(--font-stamp); font-size: .64rem; line-height: 1.15; text-align: center; padding: 4px;
-  text-transform: uppercase; letter-spacing: .02em; color: var(--paper); overflow: hidden; word-break: break-word;
-}
-.slot.flex { border-color: var(--brass-dim); }
-.slot.flex:empty::after { content: "доп."; color: var(--brass-dim); }
-.slot.vit { background: var(--vit); border: 0; } .slot.spi { background: var(--spi); border: 0; }
-.slots-note { font-family: var(--font-type); font-size: .78rem; color: var(--ink-soft); margin: 8px 0 0; }
-.inv { display: grid; gap: 14px; }
-.inv h4, .slots-wrap h4 { margin: 0 0 6px; font-family: var(--font-type); font-weight: 400; font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-soft); }
-.meter-row { display: grid; gap: 4px; }
-.meter-row .lbl { display: flex; justify-content: space-between; gap: 8px; font-size: .9rem; flex-wrap: wrap; }
-.meter-row .lbl b { font-family: var(--font-stamp); font-variant-numeric: tabular-nums; }
-.meter { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); gap: 3px; }
-.meter i { height: 12px; background: rgba(34,29,22,.12); display: block; }
-.meter i.big { outline: 1.5px solid var(--stamp); outline-offset: -1.5px; }
-.meter.vit i.on { background: var(--vit); } .meter.spi i.on { background: var(--spi); } .meter.wpn i.on { background: var(--wpn); }
-.meter-row .next { font-family: var(--font-type); font-size: .76rem; color: var(--carbon); }
-.phase { margin-top: 26px; }
-.phase h3 {
-  display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; margin: 0 0 10px;
-  font-family: var(--font-stamp); text-transform: uppercase; font-size: var(--step-1); letter-spacing: .04em;
-}
-.phase h3 span { font-family: var(--font-type); font-weight: 400; font-size: .82rem; text-transform: none; letter-spacing: 0; color: var(--ink-soft); }
-.phase.now h3::after { content: "вы здесь"; font-family: var(--font-type); font-size: .75rem; color: var(--paper); background: var(--stamp); padding: 1px 8px; text-transform: none; letter-spacing: 0; }
-.buys { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
-.buy {
-  display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; gap: 4px 14px; align-items: baseline;
-  padding: 10px 0; border-bottom: 1px solid rgba(34,29,22,.16); position: relative;
-}
-.buy .cost { font-family: var(--font-stamp); font-weight: 700; font-variant-numeric: tabular-nums; }
-.buy .cost small { display: block; font-family: var(--font-type); font-weight: 400; font-size: .7rem; color: var(--ink-soft); }
-.buy .name { font-weight: 700; }
-.buy .name .cat { display: inline-block; width: 10px; height: 10px; margin-right: 8px; vertical-align: 1px; }
-.cat.vit { background: var(--vit); } .cat.spi { background: var(--spi); }
-.buy .why { grid-column: 2 / 4; font-size: .92rem; color: var(--ink-soft); }
-.buy .mark { font-family: var(--font-stamp); font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); }
-.buy.owned .mark { color: var(--stamp); border: 2px solid var(--stamp); padding: 0 6px; transform: rotate(-5deg); }
-.buy.next { background: rgba(199,161,76,.22); outline: 2px solid var(--brass); outline-offset: -2px; padding-inline: 8px; margin-inline: -8px; }
-.buy.next .mark { color: var(--carbon); }
-.buy.gone .name { text-decoration: line-through; text-decoration-color: var(--stamp); }
-
-/* ---------- combo board ---------- */
-.board { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; padding-top: 10px; }
-.board::before { /* red string */
-  content: ""; position: absolute; left: 6%; right: 6%; top: 34px; height: 0; border-top: 2px solid var(--stamp);
-  box-shadow: 0 1px 2px rgba(0,0,0,.4);
-}
-.note { background: var(--paper); color: var(--ink); padding: 26px 16px 16px; position: relative; box-shadow: 0 8px 18px rgba(0,0,0,.35); min-width: 0; }
-.note:nth-child(odd) { transform: rotate(-1.5deg); } .note:nth-child(even) { transform: rotate(1.2deg); }
-.note::before { /* pin */
-  content: ""; position: absolute; top: 14px; left: 50%; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #e6564b, var(--stamp) 60%, #5d140f);
-}
-.note b { display: block; font-family: var(--font-stamp); text-transform: uppercase; font-size: 1.05rem; margin: 6px 0 4px; }
-.note p { margin: 0; font-size: .92rem; }
-.note .n { font-family: var(--font-type); font-size: .75rem; color: var(--ink-soft); }
-.board-caption { margin: 18px 0 0; font-family: var(--font-type); font-size: .88rem; color: var(--on-felt-dim); max-width: 70ch; }
-.teamfight { margin-top: 28px; }
-.teamfight ol { margin: 8px 0 0; padding-left: 1.3em; display: grid; gap: 6px; }
-
-/* ---------- protocol & table ---------- */
-.protocol { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
-.protocol li { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 12px; }
-.protocol .art { font-family: var(--font-type); font-size: .78rem; color: var(--stamp); padding-top: 3px; }
-.protocol b { display: block; }
-.farm { margin: 0; padding-left: 1.3em; display: grid; gap: 8px; }
-.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
-.scroll { overflow-x: auto; }
-.evid { width: 100%; min-width: 560px; border-collapse: collapse; font-size: .93rem; }
-.evid th { text-align: left; font-family: var(--font-type); font-weight: 400; font-size: .76rem; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft); border-bottom: 2px solid var(--ink); padding: 6px 10px 6px 0; }
-.evid td { padding: 9px 10px 9px 0; border-bottom: 1px solid rgba(34,29,22,.16); vertical-align: top; }
-.evid td:nth-child(3) { font-family: var(--font-stamp); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.evid td:nth-child(2) { font-weight: 700; }
-footer { font-family: var(--font-type); font-size: .8rem; color: var(--on-felt-dim); display: grid; gap: 6px; max-width: 75ch; }
-footer a { color: var(--brass); }
-
-/* ---------- soul counter ---------- */
-.counter {
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
-  padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
-  background: linear-gradient(#2a2416, #17140c); border-top: 2px solid var(--brass);
-  box-shadow: 0 -10px 30px rgba(0,0,0,.5); color: var(--on-felt);
-}
-.counter-in { max-width: 1060px; margin-inline: auto; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 6px 18px; align-items: center; }
-.counter label { font-family: var(--font-type); font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; color: var(--brass); }
-.counter output { display: block; font-family: var(--font-stamp); font-weight: 700; font-size: 1.6rem; font-variant-numeric: tabular-nums; color: var(--paper); line-height: 1.1; }
-.counter input[type=range] { width: 100%; accent-color: var(--brass); }
-.chips { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
-.chip { font-family: var(--font-type); font-size: .78rem; border: 1px solid var(--brass-dim); padding: 2px 8px; border-radius: 3px; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.presets { grid-column: 1 / -1; display: flex; gap: 6px; flex-wrap: wrap; }
-.presets button {
-  font-family: var(--font-type); font-size: .74rem; background: transparent; color: var(--on-felt); border: 1px solid #4a4230;
-  padding: 3px 9px; border-radius: 3px; cursor: pointer;
-}
-.presets button:hover, .presets button[aria-pressed=true] { border-color: var(--brass); color: var(--brass); }
-.kevlar { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-type); font-size: .74rem; color: var(--on-felt); margin-left: auto; }
-.kevlar[hidden] { display: none !important; }
-
-@media (max-width: 820px) {
-  .hero-grid, .record, .abilities, .ledger-top, .two { grid-template-columns: minmax(0, 1fr); }
-  .opis { transform: none; }
-  .stamps .stamp { font-size: var(--step-0); }
-  .board { grid-template-columns: minmax(0, 1fr); padding-left: 26px; }
-  .board::before { left: 8px; right: auto; top: 0; bottom: 0; height: auto; border-top: 0; border-left: 2px solid var(--stamp); }
-  .note, .note:nth-child(odd), .note:nth-child(even) { transform: none; }
-  .note::before { left: -26px; top: 22px; margin-left: 0; }
-  .counter-in { grid-template-columns: auto minmax(0, 1fr); }
-  .chips { grid-column: 1 / -1; justify-content: flex-start; }
-  .slots { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .buy { grid-template-columns: 62px minmax(0, 1fr) auto; }
-  body { padding-block-end: 190px; }
-}
-</style>
+<link rel="stylesheet" href="dossier.css">
 </head>
 <body>
 <div class="wrap">
-  <nav class="tabs" aria-label="Разделы досье">
-    <a href="#primety">Приметы</a>
-    <a href="#pokazaniya">Способности</a>
-    <a href="#hronika">Покупки</a>
-    <a href="#metod">Метод</a>
-    <a href="#protokol">Ошибки</a>
-    <a href="#uliki">Под соперника</a>
+  <nav class="spine" aria-label="Навигация по досье">
+    <div class="row">
+      <a class="case" href="paradox.html" title="Перейти к досье Paradox">Abrams ⇄ <small>№ 0800</small></a>
+      <div class="nums"><a href="#primety" aria-current="false"><b>I</b><small>Приметы</small></a><a href="#pokazaniya" aria-current="false"><b>II</b><small>Способности</small></a><a href="#hronika" aria-current="false"><b>III</b><small>Покупки</small></a><a href="#metod" aria-current="false"><b>IV</b><small>Метод</small></a><a href="#protokol" aria-current="false"><b>V</b><small>Ошибки</small></a><a href="#uliki" aria-current="false"><b>VI</b><small>Улики</small></a><a href="#kartoteka" aria-current="false"><b>VII</b><small>Соперники</small></a></div>
+    </div>
+    <div class="now">Лист <b data-now>обложка</b></div>
   </nav>
 
   <header class="hero">
-    <div class="folder">
+    <div class="folder" data-case="ДЕЛО № 0800">
       <div class="hero-grid">
         <div>
           <h1>Abrams</h1>
-          <p class="charge">Обвиняется: в том, что всегда входит в драку первым.</p>
-          <p>Гайд для новичка по самому простому танку Deadlock. Abrams лезет в гущу, оглушает, высасывает здоровье из всех вокруг и лечится от урона, который получает. Прицел почти не нужен, ошибки прощаются.</p>
-          <p>Внизу страницы закреплён счётчик душ. Двигай его, и все цифры в досье пересчитаются под твой матч: уровень, предметы, урон способностей.</p>
+          <p class="charge">Обвиняется в том, что всегда первым лезет в драку.</p>
+          <p>Гайд для новичков по самому простому танку в Deadlock. Abrams врывается в самую гущу боя, оглушает врагов, вытягивает здоровье из всех, кто рядом, и восстанавливается за счёт полученного урона. Метко стрелять почти не нужно, а ошибки он прощает.</p>
+          <p>Внизу экрана закреплён счётчик душ. Передвинь ползунок, и все цифры в досье пересчитаются под твою игру: уровень, предметы, урон способностей.</p>
           <div class="stamps">
             <span class="stamp slam">Танк</span>
             <span class="stamp slam d2">Сложность 1 / 4</span>
@@ -325,6 +44,7 @@ footer a { color: var(--brass); }
             <li><a href="#metod"><span>Метод работы</span><span></span><span>IV</span></a></li>
             <li><a href="#protokol"><span>Протокол ошибок</span><span></span><span>V</span></a></li>
             <li><a href="#uliki"><span>Улики под соперника</span><span></span><span>VI</span></a></li>
+            <li><a href="#kartoteka"><span>Картотека соперников</span><span></span><span>VII</span></a></li>
           </ol>
         </aside>
       </div>
@@ -335,14 +55,14 @@ footer a { color: var(--brass); }
     <div class="section-head"><span class="exhibit">Лист I</span><h2>Приметы и характер</h2></div>
     <div class="sheet record">
       <div>
-        <p class="quote">«Пока враги тратят на него патроны, союзники сзади безнаказанно наносят урон». Из описания роли от Valve.</p>
+        <p class="quote">«Пока враги тратят на него патроны, союзники из задних рядов безнаказанно наносят урон». Из описания героя в игре.</p>
         <table class="stat-table">
           <tbody>
             <tr><th>Здоровье</th><td>800 <small>+49 за усиление</small></td></tr>
             <tr><th>Регенерация</th><td>1,5 HP/с</td></tr>
             <tr><th>Скорость</th><td>6,4 м/с <small>медленный</small></td></tr>
             <tr><th>Дробовик</th><td>9 × 3,6 урона <small>магазин 9</small></td></tr>
-            <tr><th>Дальность дробовика</th><td>полный урон до 17 м <small>на 40 м: 10 %</small></td></tr>
+            <tr><th>Дальность дробовика</th><td>полный урон до 17 м <small>к 40 м — лишь 10 %</small></td></tr>
             <tr><th>Удар рукой</th><td>50 / 116 <small>лёгкий / тяжёлый</small></td></tr>
             <tr><th>Духовная сила</th><td>0 <small>+1,1 за усиление</small></td></tr>
             <tr><th>Выносливость</th><td>3 рывка</td></tr>
@@ -352,49 +72,49 @@ footer a { color: var(--brass); }
       <div class="traits">
         <h3>Сильные стороны</h3>
         <ul>
-          <li>Огромный запас здоровья и лечение сразу от двух способностей.</li>
+          <li>Много здоровья, и лечат его сразу две способности.</li>
           <li>Два оглушения: рывок в стену и ульта.</li>
-          <li>Урон наносят способности, а не прицел.</li>
-          <li>Удар рукой растёт с уровнем быстрее, чем у других героев.</li>
+          <li>Урон идёт в основном от способностей, а не от стрельбы.</li>
+          <li>Удар рукой с каждым уровнем растёт быстрее, чем у других героев.</li>
         </ul>
         <div class="minus">
           <h3>Слабые места</h3>
           <ul>
             <li>Дробовик бесполезен издалека.</li>
-            <li>Медленный: если зашёл не туда, убежать трудно.</li>
-            <li>Его можно «закайтить», держа дистанцию, пока у него перезарядки.</li>
-            <li>Срезание лечения (Healbane, Decay) бьёт по нему сильнее, чем по другим.</li>
+            <li>Медленно бегает: если полез не туда, уйти будет сложно.</li>
+            <li>Его легко «закайтить»: враги держат дистанцию, пока у него перезаряжаются способности.</li>
+            <li>Предметы, урезающие лечение (Healbane, Decay), бьют по нему больнее, чем по другим.</li>
           </ul>
         </div>
-        <p class="typed">Пометка следователя: дробовик перезаряжается по одному патрону, 0,35 с на патрон. Стреляй, не дожидаясь пустого магазина.</p>
+        <p class="typed">Пометка следователя: дробовик заряжается по одному патрону, по 0,35 с на каждый. Не жди, пока зарядится весь магазин: стрелять можно и с парой патронов.</p>
       </div>
     </div>
   </section>
 
   <section id="pokazaniya">
     <div class="section-head"><span class="exhibit">Лист II</span><h2>Способности</h2></div>
-    <p class="lede">Цифры на карточках считаются от счётчика душ внизу: сколько у тебя духовной силы, какие улучшения уже куплены. Урон указан до вычета сопротивлений цели, в игре он будет ниже.</p>
+    <p class="lede">Цифры на карточках зависят от счётчика душ внизу: от твоей духовной силы и уже купленных улучшений. Урон указан без учёта сопротивлений цели, поэтому в игре он будет ниже.</p>
     <div class="abilities">
       <article class="sheet ab" id="ab-siphon">
-        <header><h3>Siphon Life</h3><span class="key">способность 1 · открыта сразу</span></header>
-        <p>Все враги в радиусе получают урон каждые 0,25 с, а ты лечишься на 70 % урона по героям. Главный источник урона и лечения.</p>
+        <header><h3>Siphon Life</h3><span class="key">1-я способность · доступна сразу</span></header>
+        <p>Каждые 0,25 с наносит урон всем врагам поблизости и лечит тебя на 70 % урона, нанесённого героям. Твой главный источник и урона, и лечения.</p>
         <dl class="readout">
           <div><dt>Урон в секунду</dt><dd data-o="s-dps">—</dd></div>
-          <div><dt>За один каст</dt><dd data-o="s-total">—</dd></div>
+          <div><dt>За применение</dt><dd data-o="s-total">—</dd></div>
           <div><dt>Лечение с героя</dt><dd data-o="s-heal">—</dd></div>
-          <div><dt>Длится</dt><dd data-o="s-dur">—</dd></div>
+          <div><dt>Длительность</dt><dd data-o="s-dur">—</dd></div>
           <div><dt>Радиус</dt><dd data-o="s-rad">—</dd></div>
           <div><dt>Перезарядка</dt><dd data-o="s-cd">—</dd></div>
         </dl>
         <ul class="tiers">
           <li data-t="S1"><span class="t">T1 · 1</span><span>Перезарядка −20 с: 22 с вместо 42.</span></li>
           <li data-t="S2"><span class="t">T2 · 2</span><span>+2 с длительности.</span></li>
-          <li data-t="S3"><span class="t">T3 · 5</span><span>+18 урона в секунду, скейлинг от духа 0,72, радиус +2 м.</span></li>
+          <li data-t="S3"><span class="t">T3 · 5</span><span>+18 урона в секунду, коэффициент от духа 0,72, радиус +2 м.</span></li>
         </ul>
       </article>
       <article class="sheet ab" id="ab-charge">
-        <header><h3>Shoulder Charge</h3><span class="key">способность 2 · с 500 душ</span></header>
-        <p>Рывок на 1,4 с. Враги на пути цепляются и едут с тобой, а впечатанный в стену герой оглушён. И вход в драку, и выход из неё.</p>
+        <header><h3>Shoulder Charge</h3><span class="key">2-я способность · с 500 душ</span></header>
+        <p>Рывок вперёд на 1,4 с. Враги на пути цепляются и тащатся вместе с тобой, а героя, впечатанного в стену, оглушает. Годится и чтобы ворваться в драку, и чтобы из неё выйти.</p>
         <dl class="readout">
           <div><dt>Урон</dt><dd data-o="c-dmg">—</dd></div>
           <div><dt>Оглушение о стену</dt><dd data-o="c-stun">—</dd></div>
@@ -407,8 +127,8 @@ footer a { color: var(--brass); }
         </ul>
       </article>
       <article class="sheet ab" id="ab-infernal">
-        <header><h3>Infernal Resilience</h3><span class="key">пассивная · с 1 400 душ</span></header>
-        <p>Часть полученного урона возвращается лечением в течение 20 с, плюс +1 HP/с. Урон от крипов засчитывается на 40 %. Поэтому Abrams и прощает ошибки.</p>
+        <header><h3>Infernal Resilience</h3><span class="key">пассивка · с 1 400 душ</span></header>
+        <p>Часть полученного урона в течение 20 с возвращается тебе лечением, а регенерация растёт на 1 HP/с. Урон от крипов учитывается на 40 %. Именно поэтому Abrams так прощает ошибки.</p>
         <dl class="readout">
           <div><dt>Возврат урона</dt><dd data-o="i-pct">—</dd></div>
           <div><dt>Бонус здоровья</dt><dd data-o="i-hp">—</dd></div>
@@ -422,7 +142,7 @@ footer a { color: var(--brass); }
       </article>
       <article class="sheet ab" id="ab-ult">
         <header><h3>Seismic Impact</h3><span class="key">ульта · с 3 200 душ</span></header>
-        <p>Прыжок ввысь и приземление в выбранную точку: урон и оглушение всем вокруг. Перезаряжается долго, поэтому трать её на группу.</p>
+        <p>Abrams высоко подпрыгивает и обрушивается в выбранную точку: всех вокруг ранит и оглушает. Перезаряжается долго, так что используй её против группы.</p>
         <dl class="readout">
           <div><dt>Урон</dt><dd data-o="u-dmg">—</dd></div>
           <div><dt>Оглушение</dt><dd data-o="u-stun">—</dd></div>
@@ -437,51 +157,53 @@ footer a { color: var(--brass); }
       </article>
     </div>
     <div class="ap-order">
-      Порядок улучшений. Подсвечено то, на что хватает очков при текущем счётчике. Всего нужно 32 очка, а в матче на ~35 000 душ их около 28, поэтому последнее обычно остаётся невзятым.
+      Порядок улучшений. Подсвечены те, на которые хватает очков при текущем значении счётчика. Чтобы взять всё, нужно 32 очка, а за матч на ~35 000 душ их набирается около 28, так что до последнего улучшения обычно не доходит.
       <ol id="ap-list"></ol>
     </div>
   </section>
 
   <section id="hronika">
     <div class="section-head"><span class="exhibit">Лист III</span><h2>Хроника покупок</h2></div>
-    <p class="lede">Билд «спирит-танк»: духовная сила и длительность Siphon Life, всё остальное в живучесть. Рассчитан на реалистичный матч в 35 000 душ. У апгрейдов указана только доплата.</p>
+    <p class="lede">Билд «спирит-танк»: качаем духовную силу и длительность Siphon Life, остальное вкладываем в живучесть. Рассчитан на обычный матч, за который набирается около 35 000 душ. Для улучшаемых предметов указана только доплата.</p>
     <div class="sheet">
       <div class="ledger-top">
         <div class="slots-wrap">
           <h4>Слоты сейчас</h4>
           <div class="slots" id="slots"></div>
-          <p class="slots-note">9 обычных слотов и 3 дополнительных: они открываются за уничтожение вражеских Walker.</p>
+          <p class="slots-note">9 обычных слотов и 3 дополнительных. Дополнительные открываются по одному за каждого уничтоженного вражеского Walker.</p>
         </div>
         <div class="inv">
           <h4>Бонус за вложения в категорию</h4>
           <div class="meter-row"><div class="lbl"><span>Живучесть</span><b data-o="v-bonus">—</b></div><div class="meter vit" data-meter="vit"></div><div class="next" data-o="v-next"></div></div>
           <div class="meter-row"><div class="lbl"><span>Дух</span><b data-o="sp-bonus">—</b></div><div class="meter spi" data-meter="spi"></div><div class="next" data-o="sp-next"></div></div>
-          <div class="meter-row"><div class="lbl"><span>Оружие</span><b>+0 %</b></div><div class="meter wpn" data-meter="wpn"></div><div class="next">В этот билд не входит.</div></div>
+          <div class="meter-row"><div class="lbl"><span>Оружие</span><b>+0 %</b></div><div class="meter wpn" data-meter="wpn"></div><div class="next">В этом билде не используется.</div></div>
         </div>
       </div>
       <div id="phases"></div>
-      <p class="typed" style="margin-top:22px">Про Golden Goose Egg: предмет сам приносит души, но в файлах игры у него скрытый штраф −15 % к твоему урону. Для танка, который много дерётся, это плохая сделка.</p>
+      <p class="typed" style="margin-top:22px">Если Walker ещё стоят и доп. слотов нет, пропусти Mystic Vulnerability и Torment Pulse и сразу улучшай Spirit Lifesteal до Infuser. Последний, 12-й слот оставь под соперника: варианты на листе VI. Вместо Torment Pulse можно взять Superior Cooldown (−20 % к перезарядке способностей).</p>
+      <p class="typed">Про Golden Goose Egg: предмет сам приносит души, но в файлах игры у него есть скрытый штраф −15 % к твоему урону. Танку, который постоянно в драке, это невыгодно.</p>
     </div>
   </section>
 
   <section id="metod">
     <div class="section-head"><span class="exhibit">Лист IV</span><h2>Метод работы</h2></div>
-    <p class="lede">Главное правило: входи в драку первым, но только когда рядом союзники и у тебя готовы рывок и Siphon Life.</p>
+    <p class="lede">Главное правило: врывайся в драку первым, но только если рядом союзники, а рывок и Siphon Life готовы.</p>
     <div class="board" role="list">
-      <div class="note" role="listitem"><span class="n">шаг 1</span><b>Рывок в стену</b><p>Shoulder Charge так, чтобы впечатать врага в стену. Он оглушён.</p></div>
-      <div class="note" role="listitem"><span class="n">шаг 2</span><b>Siphon Life</b><p>Сразу. Враг у стены и замедлен, из радиуса ему не уйти.</p></div>
-      <div class="note" role="listitem"><span class="n">шаг 3</span><b>Тяжёлый удар</b><p>Зажми удар рукой. С Lifestrike он ещё замедляет и лечит.</p></div>
-      <div class="note" role="listitem"><span class="n">шаг 4</span><b>Дробовик в упор</b><p>Добивай в упор. Ульту береги для группы.</p></div>
+      <svg class="string" aria-hidden="true"><polyline fill="none" stroke="#a8281f" stroke-width="1.6" points=""/></svg>
+      <div class="note" role="listitem"><span class="pin-dot"></span><span class="n">шаг 1</span><b>Рывок в стену</b><p>Используй Shoulder Charge так, чтобы впечатать врага в стену: он будет оглушён.</p></div>
+      <div class="note" role="listitem"><span class="pin-dot"></span><span class="n">шаг 2</span><b>Siphon Life</b><p>Жми сразу: враг прижат к стене и замедлен, из радиуса ему не выйти.</p></div>
+      <div class="note" role="listitem"><span class="pin-dot"></span><span class="n">шаг 3</span><b>Тяжёлый удар</b><p>Зажми кнопку удара рукой. С Lifestrike удар ещё и замедляет, и лечит.</p></div>
+      <div class="note" role="listitem"><span class="pin-dot"></span><span class="n">шаг 4</span><b>Дробовик в упор</b><p>Добивай с близкого расстояния. Ульту прибереги для групповой драки.</p></div>
     </div>
-    <p class="board-caption">Красная нить — это одна связка против одиночной цели, примерно за 3 секунды.</p>
+    <p class="board-caption">Красной нитью связаны шаги одной комбинации против одиночной цели. Вся она занимает около 3 секунд.</p>
     <div class="sheet teamfight">
       <h3 class="exhibit" style="color:var(--stamp)">Командная драка</h3>
       <ol>
-        <li>Дождись, пока команда в 10–15 м за тобой.</li>
-        <li>Seismic Impact в центр вражеской группы. С Diviner's Kevlar сразу получаешь щит на 1 000 HP.</li>
-        <li>Siphon Life после приземления: ты в гуще, лечишься от всех сразу.</li>
-        <li>Рывком вытаскивай опасного стрелка из-за спин его команды к своим.</li>
-        <li>Оглушили или заглушили — сразу Unstoppable.</li>
+        <li>Дождись, пока команда подтянется на 10–15 м за тобой.</li>
+        <li>Прыгай с Seismic Impact в центр вражеской группы. С Diviner's Kevlar сразу получишь щит на 1 000 HP.</li>
+        <li>Сразу после приземления включай Siphon Life: ты в самой гуще и лечишься от всех врагов разом.</li>
+        <li>Рывком вытащи самого опасного стрелка из-за спин его команды поближе к своим.</li>
+        <li>Если видишь, что тебя вот-вот оглушат, заранее жми Unstoppable: под оглушением его уже не активировать.</li>
       </ol>
     </div>
   </section>
@@ -492,20 +214,20 @@ footer a { color: var(--brass); }
       <div class="sheet">
         <h3 class="exhibit" style="color:var(--stamp);margin-top:0">Нарушения в бою</h3>
         <ol class="protocol">
-          <li><span class="art">ст. 1</span><div><b>Рывок в одиночку против троих.</b>Назад без рывка не уйти, и даже Abrams так умирает.</div></li>
-          <li><span class="art">ст. 2</span><div><b>Драка без способностей.</b>Если рывок и Siphon Life на перезарядке, отойди за команду и дождись хотя бы одной.</div></li>
-          <li><span class="art">ст. 3</span><div><b>Ульта на одного.</b>Перезарядка больше трёх минут. Трать её на группу.</div></li>
-          <li><span class="art">ст. 4</span><div><b>Враг вышел из Siphon Life.</b>Держись вплотную и вешай замедления: рывок T1, Lifestrike.</div></li>
-          <li><span class="art">ст. 5</span><div><b>Удар в парирование.</b>Если враг ждёт твой удар, сделай паузу и бей после его парирования.</div></li>
+          <li><span class="art">ст. 1</span><div><b>Рывок в одиночку против троих.</b>Рывок уже потрачен, а без него не отступить. Так погибает даже Abrams.</div></li>
+          <li><span class="art">ст. 2</span><div><b>Драка без способностей.</b>Если рывок и Siphon Life на перезарядке, отойди за спины команды и дождись, пока откатится хотя бы одна из них.</div></li>
+          <li><span class="art">ст. 3</span><div><b>Ульта на одного.</b>Она перезаряжается больше трёх минут, так что прибереги её для группы.</div></li>
+          <li><span class="art">ст. 4</span><div><b>Враг ушёл из радиуса Siphon Life.</b>Держись к нему вплотную и замедляй: рывком с T1 или ударом с Lifestrike.</div></li>
+          <li><span class="art">ст. 5</span><div><b>Удар прямо в парирование.</b>Если видишь, что враг готов парировать, выжди и бей, когда парирование закончится.</div></li>
         </ol>
       </div>
       <div class="sheet">
         <h3 class="exhibit" style="color:var(--stamp);margin-top:0">Нарушения в фарме</h3>
         <ol class="farm">
-          <li><b>Не подтверждаешь сферы.</b> Половина душ с крипа вылетает сферой: выстрели в неё, иначе её заберёт враг. Добивание рукой засчитывает сферу сразу.</li>
-          <li><b>Стоишь без дела.</b> Между волнами чисти лагеря у линии и ломай ящики рукой. Siphon Life по лагерю и фармит, и лечит.</li>
-          <li><b>Пропускаешь Sinner's Sacrifice.</b> После 8-й минуты его разбивают ударами рукой. Это самая крупная нейтральная награда для одного игрока.</li>
-          <li><b>Умираешь с душами из лагерей.</b> Они теряются при смерти. Набрал на покупку — иди в магазин.</li>
+          <li><b>Не забираешь сферы.</b> Половина душ с крипа вылетает в виде сферы: выстрели в неё, иначе её заберёт враг. Если добить крипа рукой, сфера засчитается сразу.</li>
+          <li><b>Стоишь без дела.</b> Между волнами чисти лагеря у линии и ломай ящики рукой. Siphon Life в лагере и фармит, и лечит.</li>
+          <li><b>Пропускаешь Sinner's Sacrifice.</b> После 8-й минуты его можно разбить ударами рукой. Это самая крупная нейтральная награда, которую можно взять в одиночку.</li>
+          <li><b>Умираешь с душами из лагерей.</b> При смерти они пропадают. Накопил на покупку — сразу иди в магазин.</li>
           <li><b>Делишь убийства.</b> Крипов выгодно фармить вдвоём, а героя добивать самому: за убийство в одиночку дают 125 %.</li>
         </ol>
       </div>
@@ -514,7 +236,7 @@ footer a { color: var(--brass); }
 
   <section id="uliki">
     <div class="section-head"><span class="exhibit">Лист VI</span><h2>Улики под соперника</h2></div>
-    <p class="lede">Основной билд занимает 9 слотов из 12. Свободные слоты, а если нужно, то и место Spirit Lifesteal или Fortitude, закрывай под соперника. Что купили враги, видно по Tab.</p>
+    <p class="lede">Предметы против конкретных соперников. Ими занимают последний, 12-й слот, а если угроза серьёзная, ставят вместо Spirit Lifesteal или Fortitude. Что купили враги, видно по Tab.</p>
     <div class="sheet scroll">
       <table class="evid">
         <thead><tr><th>Если</th><th>Предмет</th><th>Цена</th><th>Что даёт</th></tr></thead>
@@ -522,15 +244,21 @@ footer a { color: var(--brass); }
           <tr><td>Тебя расстреливают стрелки</td><td>Bullet Resilience</td><td>3 200</td><td>+30 % сопротивления пулям, ещё +15 % ниже половины здоровья.</td></tr>
           <tr><td>То же, но дешевле</td><td>Return Fire</td><td>1 600</td><td>Активка: 65 % урона пулями возвращается стрелявшему, +10 % сопротивления пулям.</td></tr>
           <tr><td>Тебя бьют способностями</td><td>Spirit Resilience</td><td>3 200</td><td>+30 % сопротивления духу, ещё +15 % ниже половины здоровья.</td></tr>
-          <tr><td>Много магов в поздней игре</td><td>Witchmail</td><td>6 400</td><td>+22 % сопротивления духу, +14 духа; сильные удары способностями сокращают твои перезарядки.</td></tr>
-          <tr><td>Враги много лечатся</td><td>Healbane</td><td>1 600</td><td>Урон духом, включая Siphon Life, режет их лечение на 35 %; за убийство под эффектом хил 275.</td></tr>
+          <tr><td>Много магов в поздней игре</td><td>Witchmail</td><td>6 400</td><td>+22 % сопротивления духу, +14 духа. Когда тебя сильно бьют способностями, твои перезарядки сокращаются.</td></tr>
+          <tr><td>Враги много лечатся</td><td>Healbane</td><td>1 600</td><td>Твой урон духом, включая Siphon Life, снижает их лечение на 35 %. Если враг умрёт под этим эффектом, ты вылечишься на 275.</td></tr>
           <tr><td>Фокусят и стрелки, и маги</td><td>Colossus</td><td>6 400</td><td>Активка на 7 с: +35 % к обоим сопротивлениям, +30 % урона рукой, замедление врагов в 14 м.</td></tr>
-          <tr><td>Тебя останавливают на подходе</td><td>Counterspell</td><td>3 200</td><td>Парирование блокирует чужую способность; при успехе хил 150 и +20 духа. Нужен тайминг.</td></tr>
-          <tr><td>Хочется ещё урона</td><td>Mystic Vulnerability → Escalating Exposure</td><td>1 600 → +4 800</td><td>Тики Siphon Life быстро набирают до 12 стаков по +4,5 % урона духом по цели.</td></tr>
+          <tr><td>Тебя останавливают на подходе</td><td>Counterspell</td><td>3 200</td><td>Парирование отражает вражескую способность, а при удаче лечит на 150 и даёт +20 духа. Нужно точно поймать момент.</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="lede" style="margin-top:18px">Сложнее всего Abrams против тех, кто держит дистанцию: снайперы вроде Vindicta и Grey Talon и герои с дальним контролем. Не гоняйся за ними в одиночку, подходи с командой через укрытия.</p>
+    <p class="lede" style="margin-top:18px">Труднее всего Abrams против тех, кто держит дистанцию: снайперов вроде Vindicta и Grey Talon и героев с дальним контролем. Не гоняйся за ними в одиночку: подбирайся вместе с командой, прячась за укрытиями.</p>
+  </section>
+
+  <section id="kartoteka">
+    <div class="section-head"><span class="exhibit">Лист VII</span><h2>Картотека соперников</h2></div>
+    <p class="lede">Десять героев, которые чаще всего встречаются в матчах или особенно неудобны для Abrams. Цифры способностей взяты из файлов игры. Оценка опасности — моя, для новичка на Abrams.</p>
+    <div class="rivals" id="rivals"></div>
+    <p class="rivals-note">В режиме катки можно отметить героев из вражеской команды, и останутся только подсказки против них.</p>
   </section>
 
   <footer>
@@ -551,27 +279,72 @@ footer a { color: var(--brass); }
       <button type="button" data-v="18200">Середина</button>
       <button type="button" data-v="34200">Поздняя игра</button>
       <button type="button" data-v="48600">Потолок</button>
+      <button type="button" class="k-open" id="k-open">Режим катки</button>
       <label class="kevlar" id="kev-wrap" hidden><input type="checkbox" id="kev"> ульта прожата (Kevlar)</label>
     </div>
   </div>
 </div>
 
+<div class="katka" id="katka" role="dialog" aria-modal="true" aria-labelledby="k-title" hidden>
+  <div class="katka-in">
+    <div class="k-head">
+      <div><span class="exhibit">Рапорт на выезд</span><h2 id="k-title">Режим катки</h2></div>
+      <button type="button" class="k-close" id="k-close">Закрыть · Esc</button>
+    </div>
+    <div class="k-souls">
+      <div><span class="lbl">Душ заработано</span><output id="k-souls-out">0</output></div>
+      <div class="k-steps" id="k-steps">
+        <button type="button" data-d="-500">−500</button><button type="button" data-d="-100">−100</button>
+        <button type="button" data-d="100">+100</button><button type="button" data-d="500">+500</button>
+      </div>
+    </div>
+    <div class="k-grid">
+      <section class="sheet k-card">
+        <h3>Следующая покупка</h3>
+        <p class="k-big" data-k="buy"></p>
+        <p data-k="buy-what"></p>
+        <p class="k-small" data-k="buy-then"></p>
+      </section>
+      <section class="sheet k-card">
+        <h3>Очки способностей</h3>
+        <p class="k-big" data-k="ap"></p>
+        <p data-k="ap-note"></p>
+        <p class="k-small" data-k="ap-lvl"></p>
+      </section>
+      <section class="sheet k-card k-wide">
+        <h3>Комбо против одного</h3>
+        <ol class="k-combo"><li>Рывок в стену</li><li>Siphon Life</li><li>Тяжёлый удар</li><li>Дробовик в упор</li></ol>
+        <p class="k-small">Командная драка: ульта в центр группы → Siphon Life → рывком вытащить стрелка к своим.</p>
+      </section>
+      <section class="sheet k-card k-wide">
+        <h3>Против кого играем</h3>
+        <div class="k-chips" id="k-chips"></div>
+        <div class="k-tips" id="k-tips"></div>
+      </section>
+      <section class="sheet k-card k-wide">
+        <h3>Три правила</h3>
+        <ol class="k-rules">
+          <li>Врывайся, только если рядом союзники, а рывок и Siphon Life готовы.</li>
+          <li>Ульту трать на группу, а не на одного.</li>
+          <li>Не копи души: накопил на покупку — иди в магазин.</li>
+        </ol>
+      </section>
+    </div>
+  </div>
+</div>
+
 <script>
-(() => {
-  // ---- game data (heroes.vdata / abilities.vdata, build of 9 Oct 2026) ----
-  const LEVEL_GOLD = [0,200,500,900,1400,2000,2600,3200,3900,4600,5300,6000,6800,7600,8400,9200,10100,11000,11900,12800,13800,14900,16100,17400,18900,20600,22500,24600,26900,29400,32100,35000,38100,41400,44900,48600];
-  const UNLOCK_LEVELS = new Set([1,3,5,8]); // other levels from 2 give 1 AP
-  const UNLOCK_ORDER = ['S','C','I','U'];
-  const INV = {
-    vit: [[800,9],[1600,12],[2400,15],[3200,20],[4800,38],[6400,42],[8000,46],[11200,50],[16000,54],[22400,60],[28800,66]],
-    spi: [[800,7],[1600,11],[2400,15],[3200,19],[4800,38],[6400,45],[8000,52],[11200,59],[16000,66],[22400,75],[28800,100]],
-    wpn: [[800,9],[1600,12],[2400,15],[3200,18],[4800,46],[6400,54],[8000,62],[11200,74],[16000,86],[22400,100],[28800,115]]
-  };
-  const START = 600;
-  const UPG = [['S1',1],['I1',1],['C1',1],['S2',2],['U1',1],['I2',2],['S3',5],['C2',2],['U2',2],['I3',5],['U3',5],['C3',5]];
-  const UPG_NAME = {S:'Siphon',C:'Charge',I:'Infernal',U:'Ульта'};
-  // items: id, name, full price, category, upgrades-from, spirit, hp, why
-  const ITEMS = {
+window.HERO = {
+  id: 'abrams',
+  baseHp: 800, hpPerBoon: 49, spPerBoon: 1.1,
+  hpFromUpg: have => have.has('I1') ? 200 : 0,
+  UNLOCK_ORDER: ['S','C','I','U'],
+  UPG: [['S1',1],['I1',1],['C1',1],['S2',2],['U1',1],['I2',2],['S3',5],['C2',2],['U2',2],['I3',5],['U3',5],['C3',5]],
+  UPG_NAME: {S:'Siphon',C:'Charge',I:'Infernal',U:'Ульта'},
+  flexPhase: 4,
+  toggle: {item: 'dk', sp: 40},
+  abilityCards: [['ab-siphon','S'],['ab-charge','C'],['ab-infernal','I'],['ab-ult','U']],
+  ITEMS: {
     xs:{n:'Extra Spirit',p:800,c:'spi',sp:10,hp:0},
     xr:{n:'Extra Regen',p:800,c:'vit',sp:0,hp:0},
     ml:{n:'Melee Lifesteal',p:800,c:'vit',sp:0,hp:0},
@@ -586,143 +359,101 @@ footer a { color: var(--brass); }
     lf:{n:'Lifestrike',p:3200,c:'vit',from:'ml',sp:0,hp:125},
     ft:{n:'Fortitude',p:3200,c:'vit',from:'xh',sp:0,hp:375},
     dr:{n:'Debuff Reducer',p:1600,c:'vit',sp:0,hp:90},
-    bs:{n:'Boundless Spirit',p:6400,c:'spi',from:'is',sp:30,hp:75},
+    bs:{n:'Boundless Spirit',p:6400,c:'spi',from:'is',sp:30,spPct:15,hp:75},
     dk:{n:"Diviner's Kevlar",p:6400,c:'vit',sp:0,hp:0},
     un:{n:'Unstoppable',p:6400,c:'vit',from:'dr',sp:0,hp:125},
-    inf:{n:'Infuser',p:6400,c:'vit',from:'sl',sp:6,hp:100}
-  };
-  const PHASES = [
+    inf:{n:'Infuser',p:6400,c:'vit',from:'sl',sp:6,hp:100},
+    mv:{n:'Mystic Vulnerability',p:1600,c:'spi',sp:0,hp:0},
+    tp:{n:'Torment Pulse',p:3200,c:'spi',sp:0,hp:100},
+    ee:{n:'Escalating Exposure',p:6400,c:'spi',from:'mv',sp:0,hp:0}
+  },
+  PHASES: [
     {t:'Фаза 1. Линия', r:'0–3 800 душ', buys:[
       ['xs','+10 духа','Усиливает Siphon Life и рывок.'],
-      ['xr','+2,5 HP/с','Дольше стоишь на линии.'],
-      ['ml','Удар рукой лечит на 100, +12 % урона рукой','Тяжёлый удар по врагу — это и урон, и хил.'],
+      ['xr','+2,5 HP/с','Дольше продержишься на линии.'],
+      ['ml','Удар рукой лечит на 100 HP, урон рукой +12 %','Тяжёлый удар по врагу и бьёт, и лечит.'],
       ['xh','+210 HP','Просто больше здоровья.']]},
     {t:'Фаза 2. Ранние драки', r:'3 800–10 200 душ', buys:[
       ['de','+22 % длительности одной способности','При покупке выбери Siphon Life.'],
       ['hb','+20 % к любому лечению, +3 HP/с','Siphon Life и пассивка лечат сильнее.'],
-      ['sb','+2 м/с к спринту','Компонент для Enduring Speed.'],
-      ['es','+2 м/с, замедления слабее на 25 %','Лечит главную слабость: медлительность. Живучесть доходит до 4 800 — первый скачок бонуса.'],
+      ['sb','+2 м/с к спринту','Нужны для Enduring Speed.'],
+      ['es','+2 м/с, замедления слабее на 25 %','Закрывает главную слабость — медлительность. Вложения в живучесть доходят до 4 800: первый большой скачок бонуса.'],
       ['is','+18 духа, +75 HP','Основа для Boundless Spirit.'],
-      ['sl','13 % урона способностями возвращается хилом','Ещё больше лечения от Siphon Life.']]},
+      ['sl','13 % урона от способностей возвращается лечением','Ещё больше лечения от Siphon Life.']]},
     {t:'Фаза 3. Середина игры', r:'10 200–18 200 душ', buys:[
-      ['sd','+28 % длительности всех способностей','Дух доходит до 4 800: скачок бонуса с +19 до +38.'],
-      ['lf','Удар замедляет на 48 % и лечит, +125 HP','Тяжёлый удар становится оружием.'],
-      ['ft','+375 HP, быстрая регенерация вне боя','Реже ходишь на базу.'],
-      ['dr','Дебаффы на 25 % короче','Компонент для Unstoppable.']]},
+      ['sd','+28 % длительности всех способностей','Вложения в дух доходят до 4 800, и бонус подскакивает с +19 до +38.'],
+      ['lf','Удар замедляет на 48 % и лечит, +125 HP','Тяжёлый удар превращается в полноценное оружие.'],
+      ['ft','+375 HP, быстрая регенерация вне боя','Реже придётся возвращаться на базу.'],
+      ['dr','Дебаффы на 25 % короче','Нужен для Unstoppable.']]},
     {t:'Фаза 4. Поздняя игра', r:'18 200–34 200 душ', buys:[
-      ['bs','+30 духа и ещё +15 % от всего духа','Главный прирост урона способностей.'],
-      ['dk','При ульте щит 1 000 HP и +40 духа на 20 с','Прыгнул в толпу и получил защиту ровно тогда, когда нужно.'],
-      ['un','5,5 с иммунитета к оглушению и контролю','Тебя нельзя остановить посреди драки.']]},
-    {t:'Затяжной матч', r:'34 200+ душ', buys:[
-      ['inf','Активка: +30 духа и 70 % вампиризма способностями на 7 с','Если игра идёт дальше реалистичного бюджета.']]}
-  ];
-  const SEQ = []; PHASES.forEach((ph, pi) => ph.buys.forEach(b => SEQ.push({id:b[0], pi})));
-  let cum = 0; const owned0 = new Set();
-  SEQ.forEach(s => { const it = ITEMS[s.id]; const add = it.from && owned0.has(it.from) ? it.p - ITEMS[it.from].p : it.p; if (it.from) owned0.delete(it.from); owned0.add(s.id); cum += add; s.add = add; s.cum = cum; s.full = it.p !== add; });
-
-  const fmt = n => Math.round(n).toLocaleString('ru-RU');
-  const fmt1 = n => (Math.round(n * 10) / 10).toLocaleString('ru-RU');
-  const $ = s => document.querySelector(s);
-  const out = (k, v) => document.querySelectorAll(`[data-o="${k}"]`).forEach(e => e.textContent = v);
-  const invBonus = (cat, amt) => { let b = 0; for (const [g, v] of INV[cat]) if (amt >= g) b = v; return b; };
-  const invNext = (cat, amt) => INV[cat].find(([g]) => amt < g);
-
-  // ---- render static scaffolding ----
-  const phasesEl = $('#phases');
-  phasesEl.innerHTML = PHASES.map((ph, pi) => `
-    <div class="phase" data-phase="${pi}">
-      <h3>${ph.t}<span>${ph.r}</span></h3>
-      <ul class="buys">${ph.buys.map(([id, what, why]) => {
-        const s = SEQ.find(x => x.id === id), it = ITEMS[id];
-        return `<li class="buy" data-buy="${id}">
-          <span class="cost">${s.full ? '+' : ''}${fmt(s.add)}<small>всего ${fmt(s.cum)}</small></span>
-          <span class="name"><i class="cat ${it.c}"></i>${it.n}${it.from ? ` <span class="typed" style="font-weight:400;font-size:.8rem">из ${ITEMS[it.from].n}</span>` : ''}<br><span style="font-weight:400">${what}</span></span>
-          <span class="mark"></span>
-          <span class="why">${why}</span></li>`; }).join('')}</ul>
-    </div>`).join('');
-  document.querySelectorAll('[data-meter]').forEach(m => {
-    m.innerHTML = INV.vit.map(([g]) => `<i class="${g === 4800 ? 'big' : ''}" title="${fmt(g)} душ"></i>`).join('');
-  });
-  $('#ap-list').innerHTML = UPG.map(([k, c]) => `<li data-ap="${k}">${UPG_NAME[k[0]]} T${k[1]} <span style="opacity:.7">(${c})</span></li>`).join('');
-
-  const slider = $('#souls'), kev = $('#kev');
-
-  function state(earned) {
-    let lvl = 1; LEVEL_GOLD.forEach((g, i) => { if (earned >= g) lvl = i + 1; });
-    const boons = lvl - 1;
-    const unlocks = []; let apTotal = 0;
-    for (let l = 1; l <= lvl; l++) { if (UNLOCK_LEVELS.has(l)) unlocks.push(UNLOCK_ORDER[unlocks.length]); else apTotal++; }
-    const have = new Set(); let ap = apTotal;
-    for (const [k, c] of UPG) { if (!unlocks.includes(k[0]) || ap < c) break; have.add(k); ap -= c; }
-    const budget = earned - START; const owned = new Set(); let spent = 0, nextBuy = null; const gone = new Set();
-    for (const s of SEQ) {
-      if (budget >= s.cum) { const it = ITEMS[s.id]; if (it.from) { owned.delete(it.from); gone.add(it.from); } owned.add(s.id); spent = s.cum; }
-      else { nextBuy = s; break; }
-    }
-    let vit = 0, spi = 0, flatSp = 0, itemHp = 0;
-    owned.forEach(id => { const it = ITEMS[id]; if (it.c === 'vit') vit += it.p; else spi += it.p; flatSp += it.sp; itemHp += it.hp; });
-    const kevOn = owned.has('dk') && kev.checked;
-    let sp = boons * 1.1 + flatSp + invBonus('spi', spi);
-    if (owned.has('bs')) sp *= 1.15;
-    if (kevOn) sp += 40;
-    const hp = 800 + 49 * boons + itemHp + (have.has('I1') ? 200 : 0);
-    return {lvl, boons, unlocks, apTotal, have, owned, gone, spent, nextBuy, vit, spi, sp, kevOn, hp, budget};
-  }
-
-  function render() {
-    const earned = +slider.value; const s = state(earned);
-    $('#souls-out').textContent = fmt(earned);
-    out('lvl', `ур. ${s.lvl}`); out('ap', `AP ${s.apTotal}`); out('sp', `дух ${fmt(s.sp)}`); out('hp', `HP ${fmt(s.hp)} +${invBonus('vit', s.vit)} %`);
-    $('#kev-wrap').hidden = !s.owned.has('dk');
-    document.querySelectorAll('#presets button').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.v === earned)));
-
-    // abilities
-    const H = s.have, sp = s.sp;
+      ['bs','+30 духа и ещё +15 % ко всей духовной силе','Самая большая прибавка к урону способностей.'],
+      ['dk','После ульты: щит на 1 000 HP и +40 духа на 20 с','Щит появляется ровно тогда, когда ты прыгаешь в толпу.'],
+      ['un','5,5 с иммунитета к оглушению и контролю','Посреди драки тебя уже не остановить.']]},
+    {t:'Доп. слоты после Walker', r:'34 200+ душ · слоты 10–12', buys:[
+      ['mv','Твой урон духом снижает сопротивление цели духу на 8 %, твоё сопротивление духу +8 %','Дешёвый слот 10. Вложения в дух доходят до 11 200, бонус растёт с +52 до +59.'],
+      ['tp','Каждые 1,4 с бьёт двух ближайших врагов в радиусе 9 м, +100 HP, урон по тебе рукой −18 %','Слот 11. Постоянный урон для того, кто всё время в гуще.'],
+      ['inf','Активка: +30 духа и 70 % вампиризма способностями на 7 с','Улучшение без нового слота: если души ещё остались.'],
+      ['ee','Урон духом накладывает до 12 стаков по +4,5 % к урону духом по цели','За одно применение Siphon Life набирается почти полный стек. Вложения в дух доходят до 16 000, бонус +66.']]}
+  ],
+  RIVALS: [
+    {id:'vindicta', n:'Vindicta', role:'снайпер', lvl:3,
+     fear:['Stake: привязывает к месту на 1,75 с в радиусе 9 м (перезарядка 40 с).', 'Assassinate: выстрел через всю карту, по целям ниже 50 % здоровья бьёт сильнее.'],
+     play:['Flight держит её в воздухе 13 с, рывком не достать. Жди, пока приземлится: полёт перезаряжается 42 с.', 'С низким здоровьем не выходи на открытое место, отступай за укрытия.'],
+     buy:'Bullet Resilience', tip:'В полёте её не достать — жди приземления. С низким HP держись за укрытиями.'},
+    {id:'talon', n:'Grey Talon', role:'лучник', lvl:3,
+     fear:['Spirit Snare: ловушка на 2,25 с отключает способности, оружие и предметы (перезарядка 34 с).', 'Guided Owl: 230 урона и оглушение на 0,75 с в радиусе 12 м.'],
+     play:['Смотри под ноги и обходи ловушки. Чувствуешь угрозу — включай Unstoppable заранее.', 'Он медленный (6,3 м/с, почти как ты): доберёшься вплотную — ему не уйти.'],
+     buy:'Spirit Resilience', tip:'Обходи ловушки, Unstoppable включай заранее. Догнал — он не убежит.'},
+    {id:'haze', n:'Haze', role:'стрелок', lvl:2,
+     fear:['Sleep Dagger: сон на 2,75 с (перезарядка 30 с). Любой урон тебя будит.', 'Bullet Dance (ульта): 3,5 с без промаха стреляет по всем в радиусе 16 м.'],
+     play:['У неё всего 730 HP: рывок в стену и Siphon Life часто убивают сразу.', 'Начала ульту — выйди из радиуса 16 м. Невидимость Smoke Bomb выдаёт её вблизи.'],
+     buy:'Bullet Resilience или Return Fire', tip:'Хрупкая: связка часто убивает сразу. Ульта — сразу уходи дальше 16 м.'},
+    {id:'seven', n:'Seven', role:'маг', lvl:2,
+     fear:['Static Charge: через секунду оглушает на 0,9 с всех в 5 м вокруг цели.', 'Storm Cloud (ульта): облако до 30 м бьёт всех, кого он видит.'],
+     play:['Получил Static Charge — отбеги от союзников, чтобы не оглушило и их.', 'Ульту он держит каналом: оглуши его рывком в стену или своей ультой. Или уйди за стену: без прямой видимости урона нет.'],
+     buy:'Spirit Resilience или Witchmail', tip:'Static Charge — отбеги от своих. Его ульту сбивай оглушением или прячься за стену.'},
+    {id:'ratking', n:'Rat King', role:'боец с оружием', lvl:2,
+     fear:['Royal Pestments: щит на 15 % его здоровья, пока он держится, пули отражаются в стрелка.', 'Rule, Ratannia! (ульта): у флага его союзники получают на 15 % меньше урона и не замедляются.'],
+     play:['Пока на нём щит, не стреляй: бей Siphon Life и рукой, способности не отражаются.', 'Не дерись у его флага: рывком вытаскивай врагов из радиуса 20 м.'],
+     buy:'Bullet Resilience', tip:'Щит на нём — не стреляй, бей Siphon Life и рукой. У флага не дерись.'},
+    {id:'victor', n:'Victor', role:'танк', lvl:2,
+     fear:['Shocking Reanimation (ульта): после смерти встаёт с 50 % здоровья и оглушает всех в 18 м на 1,5 с.', 'Aura of Suffering: урон вокруг него растёт до 58 в секунду.'],
+     play:['Убил его — сразу отойди или заранее включи Unstoppable: через пару секунд он встанет и оглушит.', 'Он лечится через Jumpstart: Healbane урежет это лечение.'],
+     buy:'Healbane', tip:'Убил — отойди: он воскреснет и оглушит всех в 18 м.'},
+    {id:'infernus', n:'Infernus', role:'поджигатель', lvl:2,
+     fear:['Napalm: замедляет на 28 %, и 8 с ты получаешь от него на 16 % больше урона.', 'Concussive Combustion (ульта): через задержку оглушает на 1,25 с всех в 12 м, прервать её нельзя.'],
+     play:['Начал ульту — сразу отбегай дальше 12 м.', 'Горение копится от его попаданий: не стой под огнём дольше, чем нужно.'],
+     buy:'Spirit Resilience', tip:'Ульта — отбегай дальше 12 м, её не прервать. Напалм усиливает его урон по тебе.'},
+    {id:'vyper', n:'Vyper', role:'ассасин', lvl:2,
+     fear:['Petrifying Bola (ульта): прямое попадание превращает в камень на 2,2 с.', 'Lethal Venom: чем меньше у тебя здоровья, тем больнее яд.'],
+     play:['Screwjab Dagger замедляет всё сильнее с каждым кинжалом. Enduring Speed это смягчает.', 'С низким здоровьем отходи от неё: яд добивает.'],
+     buy:'Spirit Resilience', tip:'С низким HP не подходи: яд добивает. Замедления копятся от кинжалов.'},
+    {id:'paige', n:'Paige', role:'поддержка', lvl:1,
+     fear:['Captivating Read: зона замедления, через задержку обездвиживает на 1 с.', 'Rallying Charge (ульта): волна через весь город бьёт, оглушает на 1 с и лечит её союзников.'],
+     play:['Увидел зону под ногами — сразу выходи из неё.', 'У неё 680 HP, меньше всех: доберёшься рывком — она не переживёт связку.'],
+     buy:'Healbane', tip:'Выходи из зоны под ногами. Хрупкая: дотянулся рывком — она твоя.'},
+    {id:'graves', n:'Graves', role:'призыватель', lvl:1,
+     fear:['Grasping Hands: стена рук обездвиживает на 1 с всех, кто сквозь неё проходит.', 'Essence Theft: его оружие крадёт у тебя урон оружия и сопротивление духу.'],
+     play:['Обходи стену рук, а не беги сквозь неё.', 'У него 730 HP, а его пули не дают хедшотов: в ближнем бою ты сильнее.'],
+     buy:'Spirit Resilience', tip:'Стену рук обходи. Вблизи ты сильнее.'}
+  ],
+  compute(s, {fmt, fmt1}) {
+    const H = s.have, sp = s.sp, o = s.owned;
     const sDps = (22 + (H.has('S3') ? 18 : 0)) + (0.6 + (H.has('S3') ? 0.12 : 0)) * sp;
-    let durPct = s.owned.has('sd') ? 28 : (s.owned.has('de') ? 22 : 0); if (s.kevOn) durPct += 15;
+    let durPct = o.has('sd') ? 28 : (o.has('de') ? 22 : 0); if (s.toggleOn) durPct += 15;
     const sDur = (4 + (H.has('S2') ? 2 : 0)) * (1 + durPct / 100);
-    const amp = (s.owned.has('hb') ? 0.2 : 0);
-    out('s-dps', fmt(sDps)); out('s-total', fmt(sDps * sDur)); out('s-heal', fmt(sDps * sDur * 0.7 * (1 + amp)));
-    out('s-dur', `${fmt1(sDur)} с`); out('s-rad', `${8 + (H.has('S3') ? 2 : 0)} м`); out('s-cd', `${42 - (H.has('S1') ? 20 : 0)} с`);
-    out('c-dmg', fmt(30 + 1.4 * sp)); out('c-stun', `${fmt1(0.3 + (H.has('C2') ? 0.8 : 0))} с`); out('c-cd', `${33 - (H.has('C3') ? 18 : 0)} с`);
-    out('i-pct', `${13 + (H.has('I3') ? 9 : 0)} %`); out('i-hp', H.has('I1') ? '+200' : '0'); out('i-ls', H.has('I2') ? '18 %' : '0 %');
-    const uCd = (215 - (H.has('U1') ? 30 : 0)) * (s.owned.has('dk') ? 0.9 : 1);
-    out('u-dmg', fmt(100 + 2.325 * sp)); out('u-stun', `${fmt1(1.6 + (H.has('U2') ? 0.8 : 0))} с`); out('u-rad', `${9 + (H.has('U3') ? 6 : 0)} м`); out('u-cd', `${fmt(uCd)} с`);
-    [['ab-siphon','S'],['ab-charge','C'],['ab-infernal','I'],['ab-ult','U']].forEach(([id, k]) => document.getElementById(id).classList.toggle('locked', !s.unlocks.includes(k)));
-    document.querySelectorAll('[data-t]').forEach(li => li.classList.toggle('on', H.has(li.dataset.t)));
-    document.querySelectorAll('[data-ap]').forEach((li, i) => { li.classList.toggle('done', H.has(li.dataset.ap)); li.classList.toggle('skip', i === UPG.length - 1 && !H.has(li.dataset.ap)); });
-
-    // ledger
-    document.querySelectorAll('[data-buy]').forEach(li => {
-      const id = li.dataset.buy, own = s.owned.has(id), gone = s.gone.has(id), next = s.nextBuy && s.nextBuy.id === id;
-      li.classList.toggle('owned', own); li.classList.toggle('gone', gone); li.classList.toggle('next', !!next);
-      li.querySelector('.mark').textContent = own ? 'куплено' : gone ? 'улучшено' : next ? `ещё ${fmt(s.nextBuy.cum - s.budget)}` : '';
-    });
-    const curPhase = s.nextBuy ? s.nextBuy.pi : PHASES.length - 1;
-    document.querySelectorAll('[data-phase]').forEach(p => p.classList.toggle('now', +p.dataset.phase === curPhase));
-    const ownedList = SEQ.map(x => x.id).filter(id => s.owned.has(id));
-    $('#slots').innerHTML = Array.from({length: 12}, (_, i) => {
-      const id = ownedList[i]; const flex = i >= 9 ? ' flex' : '';
-      return id ? `<div class="slot ${ITEMS[id].c}${flex}">${ITEMS[id].n}</div>` : `<div class="slot${flex}"></div>`;
-    }).join('');
-    [['vit', s.vit, 'v'], ['spi', s.spi, 'sp']].forEach(([cat, amt, k]) => {
-      const cells = document.querySelectorAll(`[data-meter="${cat}"] i`);
-      INV[cat].forEach(([g], i) => cells[i].classList.toggle('on', amt >= g));
-      out(`${k}-bonus`, cat === 'vit' ? `+${invBonus(cat, amt)} % · ${fmt(amt)} душ` : `+${invBonus(cat, amt)} духа · ${fmt(amt)} душ`);
-      const nx = invNext(cat, amt);
-      out(`${k}-next`, nx ? `Следующий порог: ${fmt(nx[0])} душ → ${cat === 'vit' ? '+' + nx[1] + ' %' : '+' + nx[1] + ' духа'}` : 'Максимум достигнут.');
-    });
+    const amp = o.has('hb') ? 0.2 : 0;
+    const uCd = (215 - (H.has('U1') ? 30 : 0)) * (o.has('dk') ? 0.9 : 1);
+    return {
+      's-dps': fmt(sDps), 's-total': fmt(sDps * sDur), 's-heal': fmt(sDps * sDur * 0.7 * (1 + amp)),
+      's-dur': `${fmt1(sDur)} с`, 's-rad': `${8 + (H.has('S3') ? 2 : 0)} м`, 's-cd': `${42 - (H.has('S1') ? 20 : 0)} с`,
+      'c-dmg': fmt(30 + 1.4 * sp), 'c-stun': `${fmt1(0.3 + (H.has('C2') ? 0.8 : 0))} с`, 'c-cd': `${33 - (H.has('C3') ? 18 : 0)} с`,
+      'i-pct': `${13 + (H.has('I3') ? 9 : 0)} %`, 'i-hp': H.has('I1') ? '+200' : '0', 'i-ls': H.has('I2') ? '18 %' : '0 %',
+      'u-dmg': fmt(100 + 2.325 * sp), 'u-stun': `${fmt1(1.6 + (H.has('U2') ? 0.8 : 0))} с`, 'u-rad': `${9 + (H.has('U3') ? 6 : 0)} м`, 'u-cd': `${fmt(uCd)} с`
+    };
   }
-
-  slider.addEventListener('input', render);
-  kev.addEventListener('change', render);
-  document.getElementById('presets').addEventListener('click', e => {
-    const b = e.target.closest('button[data-v]'); if (!b) return; slider.value = b.dataset.v; render();
-  });
-  try { const saved = localStorage.getItem('abrams-souls'); if (saved !== null && !isNaN(+saved)) slider.value = saved; } catch (e) {}
-  slider.addEventListener('change', () => { try { localStorage.setItem('abrams-souls', slider.value); } catch (e) {} });
-  render();
-})();
+};
 </script>
+<script src="dossier.js"></script>
 </body>
 </html>
