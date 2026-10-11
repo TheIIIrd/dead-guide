@@ -292,31 +292,31 @@
       <div><span class="exhibit">Рапорт на выезд</span><h2 id="k-title">Режим катки</h2></div>
       <button type="button" class="k-close" id="k-close">Закрыть · Esc</button>
     </div>
-    <div class="k-souls">
-      <div><span class="lbl">Душ всего</span><output id="k-souls-out">0</output><span class="souls-note">с учётом 600 стартовых</span></div>
-      <div class="k-steps" id="k-steps">
-        <button type="button" data-d="-500">−500</button><button type="button" data-d="-100">−100</button>
-        <button type="button" data-d="100">+100</button><button type="button" data-d="500">+500</button>
-      </div>
-    </div>
     <div class="k-grid">
-      <section class="sheet k-card">
-        <h3>Следующая покупка</h3>
-        <p class="k-big" data-k="buy"></p>
-        <p class="k-price" data-k="buy-price"></p>
-        <div class="k-bar" role="progressbar" aria-label="Накоплено на покупку" aria-valuemin="0" aria-valuemax="100"><i data-k-bar></i></div>
-        <p class="k-small" data-k="buy-progress"></p>
-        <p data-k="buy-what"></p>
-        <p class="k-small" data-k="buy-then"></p>
+      <section class="k-wide soulline" aria-label="Душевная линия">
+        <div class="sl-head"><span>ДУШЕВНАЯ ЛИНИЯ · PARADOX · ДЕЛО № 0730</span><span data-k="head"></span></div>
+        <div class="sl-win">
+          <div class="sl-scroll" data-sl-scroll tabindex="0" aria-label="Лента билда: веди пальцем или стрелками, чтобы выставить души"><div class="sl-paper" data-sl-paper><svg data-sl-svg aria-hidden="true"></svg></div></div>
+          <div class="sl-pen" aria-hidden="true"><i data-sl-pen-t></i></div>
+        </div>
+        <div class="sl-legend"><span>▲ покупка</span><span>◆ новая способность</span><span>∧ улучшение</span><span>│ перо: твои души</span><span>Веди ленту пальцем под перо. Всё левее пера куплено</span></div>
       </section>
-      <section class="sheet k-card">
-        <h3>Очки способностей</h3>
-        <p class="k-big" data-k="ap"></p>
-        <p class="k-price" data-k="ap-cost"></p>
-        <div class="k-pips" data-k-pips aria-hidden="true"></div>
-        <p data-k="ap-note"></p>
-        <p class="k-small" data-k="ap-lvl"></p>
-        <p class="k-small" data-k="ap-then"></p>
+      <section class="k-wide k-ctrl" aria-live="polite">
+        <div class="kc-main">
+          <span class="kc-t">Сейчас покупай</span>
+          <span class="kc-item" data-k="buy"></span>
+          <span class="kc-desc" data-k="buy-desc"></span>
+          <span class="kc-sub" data-k="buy-sub"></span>
+        </div>
+        <div class="kc-right">
+          <button type="button" class="kc-buy" id="k-buy">Купил</button>
+          <button type="button" class="kc-undo" id="k-undo" aria-label="К прошлой покупке" title="К прошлой покупке">↶</button>
+        </div>
+        <div class="kc-ap">
+          <span class="kc-t">Способности дальше</span>
+          <span><b data-k="ap"></b> <span class="kc-when" data-k="ap-when"></span></span>
+          <span class="kc-desc" data-k="ap-desc"></span>
+        </div>
       </section>
       <section class="sheet k-card k-wide">
         <h3>Комбо против одного</h3>
