@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Досье Celeste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Oswald:wght@500;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Mono&display=swap">
+<style>html{color-scheme:dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<link rel="stylesheet" href="../assets/dossier.css">
+</head>
+<body class="hero-celeste">
+<div class="wrap">
+  <nav class="spine" aria-label="Навигация по досье">
+    <div class="row">
+      <button class="case" type="button" id="case-btn" aria-haspopup="true" aria-expanded="false" aria-controls="case-menu">Celeste <small>№ 0690</small> <span class="caret" aria-hidden="true">▾</span></button>
+      <div class="case-menu" id="case-menu" hidden></div>
+      <div class="nums"><a href="#primety" aria-current="false"><b>I</b><small>Приметы</small></a><a href="#pokazaniya" aria-current="false"><b>II</b><small>Способности</small></a><a href="#hronika" aria-current="false"><b>III</b><small>Покупки</small></a><a href="#metod" aria-current="false"><b>IV</b><small>Связки</small></a><a href="#tonkosti" aria-current="false"><b>V</b><small>Тонкости</small></a><a href="#uliki" aria-current="false"><b>VI</b><small>Улики</small></a><a href="#kartoteka" aria-current="false"><b>VII</b><small>Соперники</small></a></div>
+    </div>
+    <div class="now">Лист <b data-now>обложка</b></div>
+  </nav>
+
+  <header class="hero">
+    <div class="folder" data-case="ДЕЛО № 0690">
+      <div class="hero-grid">
+        <div>
+          <h1>Celeste</h1>
+          <p class="charge">Обвиняется в том, что устраивает световое шоу посреди перестрелки.</p>
+          <p>Досье для того, кто Celeste уже знает. Здесь нет советов вроде «фарм важен» и «жди команду». Здесь твой билд и твой порядок прокачки, разложенные по душам, пороги предметов, которые не пишут в описаниях, и главное: что покупать против каждого соперника, чтобы предмет закрывал сразу нескольких и давал что-то тебе или команде.</p>
+          <p>Внизу экрана закреплён счётчик душ. Он идёт до 64 000: столько стоит весь билд.</p>
+          <div class="stamps">
+            <span class="stamp slam">Маг средней дистанции</span>
+            <span class="stamp slam d2">Сложность 2 / 4</span>
+            <span class="stamp slam d3">Ульта по толпе</span>
+          </div>
+        </div>
+        <aside class="opis">
+          <h3>Опись материалов дела</h3>
+          <ol>
+            <li><a href="#primety"><span>Приметы и характер</span><span></span><span>I</span></a></li>
+            <li><a href="#pokazaniya"><span>Способности</span><span></span><span>II</span></a></li>
+            <li><a href="#hronika"><span>Хроника покупок</span><span></span><span>III</span></a></li>
+            <li><a href="#metod"><span>Связки</span><span></span><span>IV</span></a></li>
+            <li><a href="#tonkosti"><span>Тонкости и пороги</span><span></span><span>V</span></a></li>
+            <li><a href="#uliki"><span>Улики под соперника</span><span></span><span>VI</span></a></li>
+            <li><a href="#kartoteka"><span>Картотека соперников</span><span></span><span>VII</span></a></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <section id="primety">
+    <div class="section-head"><span class="exhibit">Лист I</span><h2>Приметы и характер</h2></div>
+    <div class="sheet record">
+      <div>
+        <p class="quote">Теги героя в игре: Performer, Disruptive, Dazzling.</p>
+        <table class="stat-table">
+          <tbody>
+            <tr><th>Здоровье</th><td>690 <small>+33 за усиление</small></td></tr>
+            <tr><th>Регенерация</th><td>1 HP/с</td></tr>
+            <tr><th>Скорость</th><td>6,2 м/с</td></tr>
+            <tr><th>Оружие</th><td>18 урона за выстрел <small>+0,82 за усиление</small></td></tr>
+            <tr><th>Темп</th><td>выстрел раз в 0,58 с <small>магазин 8</small></td></tr>
+            <tr><th>Скорость пули</th><td>50 м/с <small>с High-Velocity Rounds 80</small></td></tr>
+            <tr><th>Дальность</th><td>полный урон до 22 м <small>к 60 м — 10 %</small></td></tr>
+            <tr><th>Духовная сила</th><td>0 <small>+1,1 за усиление</small></td></tr>
+            <tr><th>Выносливость</th><td>4 рывка <small>у большинства 3</small></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="traits">
+        <h3>Сильные стороны</h3>
+        <ul>
+          <li>Ульта на T3 делает до 14 отскоков. Каждый отскок — это стак Escalating Exposure, замедление от Mystic Slow, а с Lightning Scroll ещё и оглушение.</li>
+          <li>Dazzling Trick наказывает тех, кто прыгает на тебя: сломанный барьер даёт немоту всем в 14 м.</li>
+          <li>Light Eater превращает каждый выстрел по метке в урон духом и вампиризм.</li>
+          <li>Четыре рывка с самого начала, с Stamina Mastery — шесть.</li>
+        </ul>
+        <div class="minus">
+          <h3>Слабые места</h3>
+          <ul>
+            <li>Пуля летит 50 м/с, выстрел раз в 0,58 с: крипов добивать тяжело, и это не исправить предметами на урон.</li>
+            <li>Промах ультой — ноль урона и 130–160 с ожидания.</li>
+            <li>690 HP. Из семнадцати героев в картотеке меньше только у Mina (660) и Paige (680).</li>
+            <li>Линия против двух героев с уроном тяжелее, чем против танка или поддержки.</li>
+          </ul>
+        </div>
+        <p class="typed">Пометка следователя: билд и порядок прокачки в досье — твои. Я только разложил их по душам и посчитал цифры из файлов игры.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pokazaniya">
+    <div class="section-head"><span class="exhibit">Лист II</span><h2>Способности</h2></div>
+    <p class="lede">Цифры на карточках зависят от счётчика душ: от духовной силы, улучшений и предметов. Урон указан до вычета сопротивлений цели.</p>
+    <div class="abilities">
+      <article class="sheet ab" id="ab-eater">
+        <header><h3>Light Eater</h3><span class="key">1-я способность · с 1 100 душ</span></header>
+        <p>Вспышка в конусе 70° перед тобой. Задетые враги получают метку: каждое твоё попадание по ним добавляет урон духом и лечит тебя.</p>
+        <dl class="readout">
+          <div><dt>Вспышка</dt><dd data-o="le-flare">—</dd></div>
+          <div><dt>Урон за попадание</dt><dd data-o="le-hit">—</dd></div>
+          <div><dt>Вампиризм</dt><dd data-o="le-ls">—</dd></div>
+          <div><dt>Метка</dt><dd data-o="le-dur">—</dd></div>
+          <div><dt>Дальность</dt><dd data-o="le-range">—</dd></div>
+          <div><dt>Перезарядка</dt><dd data-o="le-cd">—</dd></div>
+        </dl>
+        <ul class="tiers">
+          <li data-t="L1"><span class="t">T1 · 1</span><span>+15 % вампиризма: 33 % вместо 18.</span></li>
+          <li data-t="L2"><span class="t">T2 · 2</span><span>Перезарядка −10 с, дальность +3 м.</span></li>
+          <li data-t="L3"><span class="t">T3 · 5</span><span>+22 урона за попадание, коэффициент от духа 0,34 → 0,54.</span></li>
+        </ul>
+      </article>
+      <article class="sheet ab" id="ab-trick">
+        <header><h3>Dazzling Trick</h3><span class="key">2-я способность · с 2 000 душ</span></header>
+        <p>Призма-барьер на 4 с. Если его сломают, он взрывается: немота всем врагам в радиусе и урон в половину барьера.</p>
+        <dl class="readout">
+          <div><dt>Барьер</dt><dd data-o="tr-bar">—</dd></div>
+          <div><dt>Урон взрыва</dt><dd data-o="tr-boom">—</dd></div>
+          <div><dt>Немота</dt><dd data-o="tr-sil">—</dd></div>
+          <div><dt>Радиус</dt><dd data-o="tr-rad">—</dd></div>
+          <div><dt>Перезарядка</dt><dd data-o="tr-cd">—</dd></div>
+        </dl>
+        <ul class="tiers">
+          <li data-t="T1"><span class="t">T1 · 1</span><span>+3,5 м/с к скорости, пока действует барьер.</span></li>
+          <li data-t="T2"><span class="t">T2 · 2</span><span>+70 к барьеру, коэффициент от духа 0,8 → 1,56.</span></li>
+          <li data-t="T3"><span class="t">T3 · 5</span><span>Немота +1,25 с, перезарядка −20 с. Шар ульты отскакивает и от тебя.</span></li>
+        </ul>
+      </article>
+      <article class="sheet ab" id="ab-daggers">
+        <header><h3>Radiant Daggers</h3><span class="key">3-я способность · доступна сразу</span></header>
+        <p>Луч с неба через 1,4 с взрывается в радиусе 8 м. Каждое попадание по герою даёт тебе стак усиления урона духом на 30 с, до 6 стаков.</p>
+        <dl class="readout">
+          <div><dt>Урон взрыва</dt><dd data-o="d-imp">—</dd></div>
+          <div><dt>Заряды</dt><dd data-o="d-ch">—</dd></div>
+          <div><dt>Усиление × стаков</dt><dd data-o="d-amp">—</dd></div>
+          <div><dt>Срабатывает ли</dt><dd data-o="d-proc">—</dd></div>
+          <div><dt>Радиус · дальность</dt><dd data-o="d-rad">—</dd></div>
+          <div><dt>Перезарядка</dt><dd data-o="d-cd">—</dd></div>
+        </dl>
+        <ul class="tiers">
+          <li data-t="D1"><span class="t">T1 · 1</span><span>+2 заряда: три луча подряд, между ними 2 с.</span></li>
+          <li data-t="D2"><span class="t">T2 · 2</span><span>+70 урона, перезарядка −22 с: 11 с вместо 33.</span></li>
+          <li data-t="D3"><span class="t">T3 · 5</span><span>+4 % усиления и +9 % скорострельности за каждый стак.</span></li>
+        </ul>
+      </article>
+      <article class="sheet ab" id="ab-wonder">
+        <header><h3>Shining Wonder</h3><span class="key">ульта · с 3 800 душ</span></header>
+        <p>Шар бьёт цель, замедляет её на 1,5 с, укорачивает рывок и перескакивает к следующему врагу поблизости. Если цели нет, висит на месте и ждёт до 3,25 с.</p>
+        <dl class="readout">
+          <div><dt>Урон за попадание</dt><dd data-o="u-dmg">—</dd></div>
+          <div><dt>Отскоков</dt><dd data-o="u-b">—</dd></div>
+          <div><dt>Замедление</dt><dd data-o="u-slow">—</dd></div>
+          <div><dt>Рывок цели</dt><dd data-o="u-dash">—</dd></div>
+          <div><dt>Радиус отскока</dt><dd data-o="u-rad">—</dd></div>
+          <div><dt>Перезарядка</dt><dd data-o="u-cd">—</dd></div>
+        </dl>
+        <ul class="tiers">
+          <li data-t="W1"><span class="t">T1 · 1</span><span>Замедление +16 % (до 48 %), рывок короче ещё на 14 %.</span></li>
+          <li data-t="W2"><span class="t">T2 · 2</span><span>+90 урона, коэффициент от духа 0,6 → 1,05.</span></li>
+          <li data-t="W3"><span class="t">T3 · 5</span><span>+6 отскоков (до 14), перезарядка −30 с.</span></li>
+        </ul>
+      </article>
+    </div>
+    <div class="ap-order">
+      Твой порядок: Daggers до T2 (между T1 и T2 открывается Light Eater), Light Eater T1, ульта до T3, Light Eater T2, Trick до T3, Light Eater T3, последним Daggers T3. Подсвечено то, на что хватает очков при текущем счётчике. К 32 700 душ прокачано всё, кроме Daggers T3: на него очки набираются только к 49 200.
+      <ol id="ap-list"></ol>
+    </div>
+  </section>
+
+  <section id="hronika">
+    <div class="section-head"><span class="exhibit">Лист III</span><h2>Хроника покупок</h2></div>
+    <p class="lede">Твой финальный билд: 11 предметов и 12-й по ситуации, по умолчанию Stamina Mastery. Целиком он стоит 64 000 душ, а матч обычно кончается на 35–45 тысячах, поэтому в первые 36 800 собраны предметы, которые сильнее всего поднимают урон ульты и Daggers. Для улучшаемых предметов указана только доплата.</p>
+    <div class="sheet">
+      <div class="ledger-top">
+        <div class="slots-wrap">
+          <h4>Слоты сейчас</h4>
+          <div class="slots" id="slots"></div>
+          <p class="slots-note">9 обычных слотов и 3 дополнительных. Дополнительные открываются по одному за каждого уничтоженного вражеского Walker.</p>
+        </div>
+        <div class="inv">
+          <h4>Бонус за вложения в категорию</h4>
+          <div class="meter-row"><div class="lbl"><span>Живучесть</span><b data-o="v-bonus">—</b></div><div class="meter vit" data-meter="vit"></div><div class="next" data-o="v-next"></div></div>
+          <div class="meter-row"><div class="lbl"><span>Дух</span><b data-o="sp-bonus">—</b></div><div class="meter spi" data-meter="spi"></div><div class="next" data-o="sp-next"></div></div>
+          <div class="meter-row"><div class="lbl"><span>Оружие</span><b data-o="w-bonus">—</b></div><div class="meter wpn" data-meter="wpn"></div><div class="next" data-o="w-next"></div></div>
+        </div>
+      </div>
+      <div id="phases"></div>
+      <p class="typed" style="margin-top:22px">Imbue-предметы просят выбрать способность: Mystic Expansion — Radiant Daggers, Compress Cooldown — Shining Wonder. После улучшения до Greater Expansion и Superior Cooldown бонус действует на все способности.</p>
+      <p class="typed">High-Velocity Rounds (800, +60 % к скорости пули, +8 % урона оружия) в счётчик не входит. Если берёшь его на линии для добивания крипов, продай, когда понадобится слот.</p>
+      <p class="typed">Счётчик считает базовую духовную силу. Условные +30 духа от Spiritual Overflow (после стрельбы) и Infuser (на 7 с активки) в цифры на карточках не входят.</p>
+    </div>
+  </section>
+
+  <section id="metod">
+    <div class="section-head"><span class="exhibit">Лист IV</span><h2>Связки</h2></div>
+    <p class="lede">Дуэль, когда Dazzling Trick уже на T3: шар ульты отскакивает от тебя обратно в цель, и вся ульта уходит в одного.</p>
+    <div class="board" role="list">
+      <svg class="string" aria-hidden="true"><polyline fill="none" stroke="#a8281f" stroke-width="1.6" points=""/></svg>
+      <div class="note" role="listitem"><span class="pin-dot"></span><span class="n">шаг 1</span><b>Radiant Daggers</b><p>Три заряда по цели: до трёх стаков усиления ещё до начала размена.</p></div>
+      <div class="note" role="listitem"><span class="pin-dot"></span><span class="n">шаг 2</span><b>Dazzling Trick</b><p>Барьер на себя. Сломают — враг получает немоту на 3 с.</p></div>
+      <div class="note" role="listitem"><span class="pin-dot"></span><span class="n">шаг 3</span><b>Shining Wonder</b><p>Ульта в цель: шар ходит между ним и тобой, каждый удар — стак Exposure.</p></div>
+      <div class="note" role="listitem"><span class="pin-dot"></span><span class="n">шаг 4</span><b>Light Eater</b><p>Метка и стрельба: каждый выстрел добавляет урон духом и лечит.</p></div>
+    </div>
+    <p class="board-caption">Красной нитью связаны шаги одной связки против одиночной цели.</p>
+    <div class="sheet teamfight">
+      <h3 class="exhibit" style="color:var(--stamp);margin-top:0">Командная драка в поздней игре</h3>
+      <ol>
+        <li>Radiant Daggers по скоплению врагов: стаки усиления копятся с каждого задетого героя.</li>
+        <li>Shining Wonder в гущу. С Lightning Scroll через 3 с после попадания все задетые оглушаются на 0,75 с.</li>
+        <li>Infuser: 7 с вампиризма 70 %, пока шар и Torment Pulse бьют по толпе.</li>
+        <li>Refresher. Он восстанавливает и заряды, поэтому снова три луча Daggers и вторая ульта.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="tonkosti">
+    <div class="section-head"><span class="exhibit">Лист V</span><h2>Тонкости и пороги</h2></div>
+    <p class="lede">То, чего нет в описаниях предметов и способностей. Всё посчитано по файлам игры.</p>
+    <div class="sheet">
+      <ol class="protocol">
+        <li><span class="art">порог 80</span><div><b>Mystic Burst и ранний Daggers T2.</b>Предмет срабатывает от удара в 80 урона и больше. Daggers до T2 бьют на 55 + 0,63 × дух, на линии это 60–70. С T2 — 125 + 0,63 × дух. Поэтому Daggers T2 так рано и стоит в порядке прокачки.</div></li>
+        <li><span class="art">порог 165</span><div><b>Tankbuster.</b>Daggers на T2 проходят порог с 64 духа, ульта на T2 (230 + 1,05 × дух) — всегда. Вспышке Light Eater (40 + 0,47 × дух) нужно 266 духа. Бонус Tankbuster не учитывает сопротивление духу, поэтому против танков он полезнее любого чистого духа.</div></li>
+        <li><span class="art">порог 500</span><div><b>Spirit Burn.</b>500 урона духом по одной цели за 5 с. Ульта с T2, Daggers и Torment Pulse набирают их за один заход, после чего у цели −70 % лечения на 8 с.</div></li>
+        <li><span class="art">0,7 с</span><div><b>Стаки Escalating Exposure</b> вешаются не чаще раза в 0,7 с на цель. Отскоки ульты, лучи Daggers и Torment Pulse каждые 1,4 с держат их без перерыва.</div></li>
+        <li><span class="art">0,5 с</span><div><b>Метка Light Eater</b> в файлах ограничена одним срабатыванием в 0,5 с, а ты стреляешь раз в 0,58 с. Значит, срабатывает каждый выстрел, и медленное оружие тут ничего не теряет.</div></li>
+        <li><span class="art">50 %</span><div><b>Урон взрыва Dazzling Trick</b> — половина барьера, то есть он растёт от духа: на T2 это 85 + 0,78 × дух.</div></li>
+        <li><span class="art">оружие</span><div><b>Spiritual Overflow — предмет категории «оружие».</b>6 400 душ вложений в оружие дают +54 % к урону оружия, и каждый выстрел по метке Light Eater становится сильнее.</div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="uliki">
+    <div class="section-head"><span class="exhibit">Лист VI</span><h2>Улики под соперника</h2></div>
+    <p class="lede">12-й слот ситуативный. Здесь предметы, которые закрывают сразу нескольких героев и при этом дают что-то тебе или команде. Ставь их вместо Stamina Mastery, а если угроз две — ещё и вместо Torment Pulse. Что купили враги, видно по Tab.</p>
+    <div class="sheet scroll">
+      <table class="evid">
+        <thead><tr><th>Против кого</th><th>Предмет</th><th>Цена</th><th>Что даёт тебе и команде</th></tr></thead>
+        <tbody>
+          <tr><td>Abrams, Infernus, Graves, Mina, Venator, Vyper, Apollo — весь контроль сразу</td><td>Indomitable</td><td>6 400</td><td>Барьер 325 + 2 × дух, когда тебя оглушили, обездвижили, усыпили или наложили немоту. Срабатывание сокращает перезарядки на 20 %. +10 % сопротивления пулям и духу.</td></tr>
+          <tr><td>Haze, Venator, Vindicta, Rat King, Mina — все стрелки</td><td>Suppressor</td><td>1 600</td><td>+6 духа. Любой твой урон духом на 4,5 с режет скорострельность на 28 %, и ульта раздаёт это всей вражеской команде.</td></tr>
+          <tr><td>Haze (Sleep Dagger), Vyper (Bola), Paradox (Swap), Grey Talon (сова)</td><td>Counterspell</td><td>3 200</td><td>Парирование способности: ни урона, ни эффекта. При успехе +150 HP, +20 духа и +1,75 м/с на 6 с. Постоянно +5 духа.</td></tr>
+          <tr><td>Apollo, Drifter, Yamato, Paige</td><td>Silence Wave</td><td>3 200</td><td>Немота на 3 с по расширяющейся линии и 75 + 0,7 × дух урона, а этот урон проходит порог Mystic Burst. Не сбивает уже начатые поддерживаемые способности.</td></tr>
+          <tr><td>Abrams, Victor, Paige</td><td>Spirit Burn раньше</td><td>6 400</td><td>Он уже в билде. Против лечения бери его перед Refresher: −70 % лечения цели на 8 с.</td></tr>
+          <tr><td>Abrams, Victor, Paige на ранней стадии</td><td>Healbane</td><td>1 600</td><td>Дешёвый вариант до Spirit Burn: +7 духа, урон духом режет лечение на 35 %, за убийство под эффектом +275 HP. После Spirit Burn не нужен.</td></tr>
+          <tr><td>Yamato, Apollo, Haze</td><td>Slowing Hex → Vortex Web</td><td>1 600 / 6 400</td><td>Hex на 3,5 с запрещает цели способности передвижения. Web ловит всех в 12 м: замедление 28 %, рывок −36 %. Ульта потом бьёт по скоплению.</td></tr>
+          <tr><td>Grey Talon, Seven, Infernus, Paradox</td><td>Spellbreaker</td><td>6 400</td><td>Следующий удар духом от 175 урона снижается на 65 %, раз в 9 с. +18 % сопротивления духу, +25 % к сопротивлению дебаффам, +90 HP.</td></tr>
+          <tr><td>Seven (облако), Haze (ульта)</td><td>Cursed Relic</td><td>6 400</td><td>Прерывание, немота, разоружение и запрет предметов на 3,25 с. Снимает обычные баффы. Твой урон на это время −25 %.</td></tr>
+          <tr><td>Vindicta в полёте</td><td>Knockdown</td><td>3 200</td><td>Оглушение через 2 с, по цели в воздухе — до 2 с. +75 HP.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede" style="margin-top:18px">Шире всего закрывают Indomitable (весь контроль) и Suppressor (все стрелки, а ещё он дешёвый и даёт дух). Если не знаешь, что брать, начинай с них.</p>
+  </section>
+
+  <section id="kartoteka">
+    <div class="section-head"><span class="exhibit">Лист VII</span><h2>Картотека соперников</h2></div>
+    <p class="lede">Семнадцать героев: те, что чаще всего встречаются в матчах, плюс Abrams и Paradox. Цифры способностей взяты из файлов игры. Оценка опасности — моя, для Celeste.</p>
+    <div class="rivals" id="rivals"></div>
+    <p class="rivals-note">В режиме катки можно отметить героев из вражеской команды, и останутся только подсказки против них.</p>
+  </section>
+
+  <footer>
+    <span>Статы героя, способностей и предметов, бонусы за вложения и кривая уровней взяты из файлов игры (heroes.vdata, abilities.vdata), сборка от 9 октября 2026.</span>
+    <span>Экономика душ: <a href="https://deadlock.wiki/Souls" rel="noopener">deadlock.wiki/Souls</a>. Дальность оружия: <a href="https://deadlock.wiki/Falloff_Range" rel="noopener">deadlock.wiki/Falloff_Range</a>.</span>
+    <span>Неофициальный фанатский гайд. Deadlock — игра Valve. После балансных патчей цифры могут устареть.</span>
+  </footer>
+</div>
+
+<div class="counter" role="region" aria-label="Счётчик душ">
+  <div class="counter-in">
+    <div><label for="souls">Душ всего</label><output id="souls-out" for="souls">22 400</output><span class="souls-note">с учётом 600 стартовых</span></div>
+    <input type="range" id="souls" min="600" max="64000" step="100" value="22400" aria-describedby="souls-out">
+    <div class="chips"><span class="chip" data-o="lvl">ур. —</span><span class="chip" data-o="ap">AP —</span><span class="chip" data-o="sp">дух —</span><span class="chip" data-o="hp">HP —</span></div>
+    <div class="presets" id="presets">
+      <button type="button" data-v="3200">Линия</button>
+      <button type="button" data-v="10400">Ранние драки</button>
+      <button type="button" data-v="22400">Середина</button>
+      <button type="button" data-v="36800">Поздняя игра</button>
+      <button type="button" data-v="64000">Весь билд</button>
+      <button type="button" class="k-open" id="k-open">Режим катки</button>
+    </div>
+  </div>
+</div>
+
+<div class="katka" id="katka" role="dialog" aria-modal="true" aria-labelledby="k-title" hidden>
+  <div class="katka-in">
+    <div class="k-head">
+      <div><span class="exhibit">Рапорт на выезд</span><h2 id="k-title">Режим катки</h2></div>
+      <button type="button" class="k-close" id="k-close">Закрыть · Esc</button>
+    </div>
+    <div class="k-grid">
+      <section class="k-wide soulline" aria-label="Душевная линия">
+        <div class="sl-head"><span>ДУШЕВНАЯ ЛИНИЯ · CELESTE · ДЕЛО № 0690</span><span data-k="head"></span></div>
+        <div class="sl-win">
+          <div class="sl-scroll" data-sl-scroll tabindex="0" aria-label="Лента билда: веди пальцем или стрелками, чтобы выставить души"><div class="sl-paper" data-sl-paper><svg data-sl-svg aria-hidden="true"></svg></div></div>
+          <div class="sl-pen" aria-hidden="true"><i data-sl-pen-t></i></div>
+        </div>
+        <div class="sl-legend"><span>▲ покупка</span><span>◆ новая способность</span><span>∧ улучшение</span><span>│ перо: твои души</span><span>Веди ленту пальцем под перо. Всё левее пера куплено</span></div>
+      </section>
+      <section class="k-wide k-ctrl" aria-live="polite">
+        <div class="kc-main">
+          <span class="kc-t">Сейчас покупай</span>
+          <span class="kc-item" data-k="buy"></span>
+          <span class="kc-desc" data-k="buy-desc"></span>
+          <span class="kc-sub" data-k="buy-sub"></span>
+        </div>
+        <div class="kc-right">
+          <button type="button" class="kc-buy" id="k-buy">Купил</button>
+          <button type="button" class="kc-undo" id="k-undo" aria-label="К прошлой покупке" title="К прошлой покупке">↶</button>
+        </div>
+        <div class="kc-ap">
+          <span class="kc-t">Способности дальше</span>
+          <span><b data-k="ap"></b> <span class="kc-when" data-k="ap-when"></span></span>
+          <span class="kc-desc" data-k="ap-desc"></span>
+        </div>
+      </section>
+      <section class="sheet k-card k-wide">
+        <h3>Дуэль</h3>
+        <ol class="k-combo"><li>Radiant Daggers ×3</li><li>Dazzling Trick</li><li>Shining Wonder</li><li>Light Eater и стрельба</li></ol>
+        <p class="k-small">Командная драка: Daggers в толпу → ульта → Infuser → Refresher → Daggers → ульта.</p>
+      </section>
+      <section class="sheet k-card k-wide">
+        <h3>Против кого играем</h3>
+        <div class="k-chips" id="k-chips"></div>
+        <div class="k-tips" id="k-tips"></div>
+      </section>
+      <section class="sheet k-card k-wide">
+        <h3>Три правила</h3>
+        <ol class="k-rules">
+          <li>Барьер — когда враг уже рядом: немоту даёт только сломанный барьер.</li>
+          <li>Против Abrams, Victor и Paige Spirit Burn раньше Refresher.</li>
+          <li>Против контроля и стрелков 12-й слот — Indomitable или Suppressor.</li>
+        </ol>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script src="hero.js"></script>
+<script src="../assets/heroes.js"></script>
+<script src="../assets/dossier.js"></script>
+</body>
+</html>
